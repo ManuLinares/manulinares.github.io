@@ -1,0 +1,1586 @@
+[
+  {
+    "id": 1,
+    "title": "Thumbing My Way",
+    "artist": "Pearl Jam",
+    "src": "assets/pearl-jam-thumbing-my-way.opus",
+    "date": "2026-06-06",
+    "duration": "4:30"
+  },
+  {
+    "id": 2,
+    "title": "Carry This Picture",
+    "artist": "Dashboard Confessional",
+    "src": "assets/dashboard-confessional-carry-this-picture.opus",
+    "date": "2026-05-22",
+    "duration": "3:09"
+  },
+  {
+    "id": 3,
+    "title": "The Curse",
+    "artist": "Audioslave",
+    "src": "assets/audioslave-the-curse.opus",
+    "date": "2026-04-30",
+    "duration": "3:07"
+  },
+  {
+    "id": 4,
+    "title": "Libertad",
+    "artist": "Comendatore",
+    "src": "assets/comendatore-libertad.opus",
+    "date": "2026-03-07",
+    "duration": "3:02"
+  },
+  {
+    "id": 5,
+    "title": "December",
+    "artist": "Collective Soul",
+    "src": "assets/collective-soul-december.opus",
+    "date": "2025-12-04",
+    "duration": "4:07"
+  },
+  {
+    "id": 6,
+    "title": "Blowin' in the Wind",
+    "artist": "Bob Dylan",
+    "src": "assets/bob-dylan-blowin-in-the-wind.opus",
+    "date": "2025-11-15",
+    "duration": "3:00"
+  },
+  {
+    "id": 7,
+    "title": "Inevitable",
+    "artist": "Shakira",
+    "src": "assets/shakira-inevitable.opus",
+    "date": "2025-09-27",
+    "duration": "3:44"
+  },
+  {
+    "id": 8,
+    "title": "Magia Veneno",
+    "artist": "Catupecu Machu",
+    "src": "assets/catupecu-machu-magia-veneno.opus",
+    "date": "2025-06-27",
+    "duration": "3:29"
+  },
+  {
+    "id": 9,
+    "title": "Hasta Que Me Olvides",
+    "artist": "Luis Miguel",
+    "src": "assets/luis-miguel-hasta-que-me-olvides.opus",
+    "date": "2025-06-20",
+    "duration": "2:04"
+  },
+  {
+    "id": 10,
+    "title": "Juegos de Seducción",
+    "artist": "Soda Stereo",
+    "src": "assets/soda-stereo-juegos-de-seduccion.opus",
+    "date": "2025-05-22",
+    "duration": "2:59"
+  },
+  {
+    "id": 11,
+    "title": "Shadow on the Sun",
+    "artist": "Audioslave",
+    "src": "assets/audioslave-shadow-on-the-sun.opus",
+    "date": "2025-05-05",
+    "duration": "5:30"
+  },
+  {
+    "id": 12,
+    "title": "Every Breath You Take",
+    "artist": "The Police",
+    "src": "assets/the-police-every-breath-you-take.opus",
+    "date": "2025-02-06",
+    "duration": "3:24"
+  },
+  {
+    "id": 13,
+    "title": "Stairway to Heaven",
+    "artist": "Led Zeppelin",
+    "src": "assets/led-zeppelin-stairway-to-heaven.opus",
+    "date": "2025-02-04",
+    "duration": "8:43"
+  },
+  {
+    "id": 14,
+    "title": "Big Empty",
+    "artist": "Stone Temple Pilots",
+    "src": "assets/stone-temple-pilots-big-empty.opus",
+    "date": "2025-01-01",
+    "duration": "5:01"
+  },
+  {
+    "id": 15,
+    "title": "Hand in My Pocket",
+    "artist": "Alanis Morissette",
+    "src": "assets/alanis-morissette-hand-in-my-pocket.opus",
+    "date": "2024-12-27",
+    "duration": "4:06"
+  },
+  {
+    "id": 16,
+    "title": "The World I Know",
+    "artist": "Collective Soul",
+    "src": "assets/collective-soul-the-world-i-know.opus",
+    "date": "2024-11-30",
+    "duration": "4:27"
+  },
+  {
+    "id": 17,
+    "title": "I Could Have Lied",
+    "artist": "Red Hot Chili Peppers",
+    "src": "assets/red-hot-chili-peppers-i-could-have-lied.opus",
+    "date": "2024-08-30",
+    "duration": "3:40"
+  },
+  {
+    "id": 18,
+    "title": "Thank You",
+    "artist": "Led Zeppelin",
+    "src": "assets/led-zeppelin-thank-you.opus",
+    "date": "2024-07-18",
+    "duration": "5:13"
+  },
+  {
+    "id": 19,
+    "title": "Pretty Penny",
+    "artist": "Stone Temple Pilots",
+    "src": "assets/stone-temple-pilots-pretty-penny.opus",
+    "date": "2024-06-23",
+    "duration": "2:49"
+  },
+  {
+    "id": 20,
+    "title": "15-5",
+    "artist": "Divididos",
+    "src": "assets/divididos-15-5.opus",
+    "date": "2024-04-20",
+    "duration": "2:52"
+  },
+  {
+    "id": 21,
+    "title": "Hit the Road Jack",
+    "artist": "Ray Charles",
+    "src": "assets/ray-charles-hit-the-road-jack.opus",
+    "date": "2024-04-16",
+    "duration": "2:26"
+  },
+  {
+    "id": 22,
+    "title": "Nothingman",
+    "artist": "Pearl Jam",
+    "src": "assets/pearl-jam-nothingman.opus",
+    "date": "2024-04-16",
+    "duration": "6:09"
+  },
+  {
+    "id": 23,
+    "title": "One Last Breath",
+    "artist": "Creed",
+    "src": "assets/creed-one-last-breath.opus",
+    "date": "2024-02-24",
+    "duration": "3:30"
+  },
+  {
+    "id": 24,
+    "title": "Low Man's Lyric",
+    "artist": "Metallica",
+    "src": "assets/metallica-low-mans-lyric.opus",
+    "date": "2024-02-21",
+    "duration": "7:18"
+  },
+  {
+    "id": 25,
+    "title": "Uninvited",
+    "artist": "Alanis Morissette",
+    "src": "assets/alanis-morissette-uninvited.opus",
+    "date": "2024-01-18",
+    "duration": "3:46"
+  },
+  {
+    "id": 26,
+    "title": "Don't Stop Dancing",
+    "artist": "Creed",
+    "src": "assets/creed-dont-stop-dancing.opus",
+    "date": "2023-12-28",
+    "duration": "5:05"
+  },
+  {
+    "id": 27,
+    "title": "Cantando",
+    "artist": "Manu",
+    "src": "assets/manu-cantando.opus",
+    "date": "2023-12-08",
+    "duration": "1:00"
+  },
+  {
+    "id": 28,
+    "title": "Wide Awake",
+    "artist": "Chris Cornell",
+    "src": "assets/chris-cornell-wide-awake.opus",
+    "date": "2023-11-23",
+    "duration": "4:18"
+  },
+  {
+    "id": 29,
+    "title": "Chandelier",
+    "artist": "Sia",
+    "src": "assets/sia-chandelier.opus",
+    "date": "2023-11-23",
+    "duration": "4:26"
+  },
+  {
+    "id": 30,
+    "title": "Better Man",
+    "artist": "Pearl Jam",
+    "src": "assets/pearl-jam-better-man.opus",
+    "date": "2023-10-21",
+    "duration": "5:17"
+  },
+  {
+    "id": 31,
+    "title": "Thank U",
+    "artist": "Alanis Morissette",
+    "src": "assets/alanis-morissette-thank-u.opus",
+    "date": "2023-08-24",
+    "duration": "5:16"
+  },
+  {
+    "id": 32,
+    "title": "Just the Two of Us",
+    "artist": "Bill Withers",
+    "src": "assets/bill-withers-just-the-two-of-us.opus",
+    "date": "2023-08-19",
+    "duration": "2:41"
+  },
+  {
+    "id": 33,
+    "title": "Slither",
+    "artist": "Velvet Revolver",
+    "src": "assets/velvet-revolver-slither.opus",
+    "date": "2023-08-04",
+    "duration": "3:00"
+  },
+  {
+    "id": 34,
+    "title": "Say Hello 2 Heaven",
+    "artist": "Temple of the Dog",
+    "src": "assets/temple-of-the-dog-say-hello-2-heaven.opus",
+    "date": "2023-07-28",
+    "duration": "6:56"
+  },
+  {
+    "id": 35,
+    "title": "I Want to Break Free",
+    "artist": "Queen",
+    "src": "assets/queen-i-want-to-break-free.opus",
+    "date": "2023-06-28",
+    "duration": "3:42"
+  },
+  {
+    "id": 36,
+    "title": "Your Turn to Roll",
+    "artist": "Critical Role",
+    "src": "assets/critical-role-your-turn-to-roll.opus",
+    "date": "2023-06-22",
+    "duration": "1:22"
+  },
+  {
+    "id": 37,
+    "title": "Color Esperanza",
+    "artist": "Diego Torres",
+    "src": "assets/diego-torres-color-esperanza.opus",
+    "date": "2023-06-20",
+    "duration": "3:46"
+  },
+  {
+    "id": 38,
+    "title": "Jugando con el Bajo",
+    "artist": "Manu",
+    "src": "assets/manu-jugando-con-el-bajo.opus",
+    "date": "2023-05-31",
+    "duration": "4:35"
+  },
+  {
+    "id": 39,
+    "title": "Heart-Shaped Box",
+    "artist": "Nirvana",
+    "src": "assets/nirvana-heart-shaped-box.opus",
+    "date": "2023-05-27",
+    "duration": "5:35"
+  },
+  {
+    "id": 40,
+    "title": "Superstition",
+    "artist": "Stevie Wonder",
+    "src": "assets/stevie-wonder-superstition.opus",
+    "date": "2023-05-14",
+    "duration": "2:52"
+  },
+  {
+    "id": 41,
+    "title": "Around the World",
+    "artist": "Red Hot Chili Peppers",
+    "src": "assets/red-hot-chili-peppers-around-the-world.opus",
+    "date": "2023-05-07",
+    "duration": "4:10"
+  },
+  {
+    "id": 42,
+    "title": "Fell on Black Days",
+    "artist": "Soundgarden",
+    "src": "assets/soundgarden-fell-on-black-days.opus",
+    "date": "2023-04-21",
+    "duration": "5:44"
+  },
+  {
+    "id": 43,
+    "title": "Nutshell",
+    "artist": "Alice in Chains",
+    "src": "assets/alice-in-chains-nutshell.opus",
+    "date": "2023-04-20",
+    "duration": "4:03"
+  },
+  {
+    "id": 44,
+    "title": "Elderly Woman",
+    "artist": "Pearl Jam",
+    "src": "assets/pearl-jam-elderly-woman.opus",
+    "date": "2023-03-29",
+    "duration": "4:12"
+  },
+  {
+    "id": 45,
+    "title": "If I Ain't Got You",
+    "artist": "Alicia Keys",
+    "src": "assets/alicia-keys-if-i-aint-got-you.opus",
+    "date": "2023-03-14",
+    "duration": "4:16"
+  },
+  {
+    "id": 46,
+    "title": "Careless Whisper",
+    "artist": "George Michael",
+    "src": "assets/george-michael-careless-whisper.opus",
+    "date": "2023-03-02",
+    "duration": "4:11"
+  },
+  {
+    "id": 47,
+    "title": "Creep",
+    "artist": "Stone Temple Pilots",
+    "src": "assets/stone-temple-pilots-creep.opus",
+    "date": "2023-01-22",
+    "duration": "4:23"
+  },
+  {
+    "id": 48,
+    "title": "Snow (Hey Oh)",
+    "artist": "Red Hot Chili Peppers",
+    "src": "assets/red-hot-chili-peppers-snow-hey-oh.opus",
+    "date": "2023-01-12",
+    "duration": "5:03"
+  },
+  {
+    "id": 49,
+    "title": "You Know You're Right",
+    "artist": "Nirvana",
+    "src": "assets/nirvana-you-know-youre-right.opus",
+    "date": "2023-01-11",
+    "duration": "3:39"
+  },
+  {
+    "id": 50,
+    "title": "Until It Sleeps",
+    "artist": "Metallica",
+    "src": "assets/metallica-until-it-sleeps.opus",
+    "date": "2022-10-28",
+    "duration": "4:32"
+  },
+  {
+    "id": 51,
+    "title": "Sinfonía Tormentosa",
+    "artist": "Enlace",
+    "src": "assets/enlace-sinfonia-tormentosa.opus",
+    "date": "2022-10-26",
+    "duration": "3:48"
+  },
+  {
+    "id": 52,
+    "title": "Interstate Love Song",
+    "artist": "Stone Temple Pilots",
+    "src": "assets/stone-temple-pilots-interstate-love-song.opus",
+    "date": "2022-10-20",
+    "duration": "4:15"
+  },
+  {
+    "id": 53,
+    "title": "Maitena",
+    "artist": "Manu",
+    "src": "assets/manu-maitena.opus",
+    "date": "2022-10-19",
+    "duration": "2:37"
+  },
+  {
+    "id": 54,
+    "title": "Swiss Army Romance",
+    "artist": "Dashboard Confessional",
+    "src": "assets/dashboard-confessional-swiss-army-romance.opus",
+    "date": "2022-10-18",
+    "duration": "3:46"
+  },
+  {
+    "id": 55,
+    "title": "Stronger Than Me",
+    "artist": "Amy Winehouse",
+    "src": "assets/amy-winehouse-stronger-than-me.opus",
+    "date": "2022-10-15",
+    "duration": "3:36"
+  },
+  {
+    "id": 56,
+    "title": "Dean Town",
+    "artist": "Vulfpeck",
+    "src": "assets/vulfpeck-dean-town.opus",
+    "date": "2022-10-11",
+    "duration": "3:46"
+  },
+  {
+    "id": 57,
+    "title": "Two of Us",
+    "artist": "The Beatles",
+    "src": "assets/the-beatles-two-of-us.opus",
+    "date": "2022-10-05",
+    "duration": "3:19"
+  },
+  {
+    "id": 58,
+    "title": "Rockin' in the Free World",
+    "artist": "Neil Young",
+    "src": "assets/neil-young-rockin-in-the-free-world.opus",
+    "date": "2022-09-24",
+    "duration": "4:57"
+  },
+  {
+    "id": 59,
+    "title": "Cajita Musical",
+    "artist": "Divididos",
+    "src": "assets/divididos-cajita-musical.opus",
+    "date": "2022-09-24",
+    "duration": "3:42"
+  },
+  {
+    "id": 60,
+    "title": "Tus Regalos",
+    "artist": "Enlace",
+    "src": "assets/enlace-tus-regalos.opus",
+    "date": "2022-09-22",
+    "duration": "3:02"
+  },
+  {
+    "id": 61,
+    "title": "No Surprises",
+    "artist": "Radiohead",
+    "src": "assets/radiohead-no-surprises.opus",
+    "date": "2022-09-01",
+    "duration": "4:16"
+  },
+  {
+    "id": 62,
+    "title": "Take On Me",
+    "artist": "A-ha",
+    "src": "assets/a-ha-take-on-me.opus",
+    "date": "2022-08-25",
+    "duration": "3:22"
+  },
+  {
+    "id": 63,
+    "title": "Yesterday",
+    "artist": "The Beatles",
+    "src": "assets/the-beatles-yesterday.opus",
+    "date": "2022-08-19",
+    "duration": "2:41"
+  },
+  {
+    "id": 64,
+    "title": "You Learn",
+    "artist": "Alanis Morissette",
+    "src": "assets/alanis-morissette-you-learn.opus",
+    "date": "2022-08-17",
+    "duration": "3:33"
+  },
+  {
+    "id": 65,
+    "title": "Smells Like Teen Spirit",
+    "artist": "Nirvana",
+    "src": "assets/nirvana-smells-like-teen-spirit.opus",
+    "date": "2022-08-12",
+    "duration": "4:44"
+  },
+  {
+    "id": 66,
+    "title": "Drive",
+    "artist": "Incubus",
+    "src": "assets/incubus-drive.opus",
+    "date": "2022-06-23",
+    "duration": "3:32"
+  },
+  {
+    "id": 67,
+    "title": "Release",
+    "artist": "Pearl Jam",
+    "src": "assets/pearl-jam-release.opus",
+    "date": "2022-06-16",
+    "duration": "4:45"
+  },
+  {
+    "id": 68,
+    "title": "Himno Nacional Argentino",
+    "artist": "Argentina",
+    "src": "assets/argentina-himno-nacional-argentino.opus",
+    "date": "2022-06-01",
+    "duration": "4:18"
+  },
+  {
+    "id": 69,
+    "title": "Esperar",
+    "artist": "Árbol",
+    "src": "assets/arbol-esperar.opus",
+    "date": "2022-05-25",
+    "duration": "2:25"
+  },
+  {
+    "id": 70,
+    "title": "Ironic",
+    "artist": "Alanis Morissette",
+    "src": "assets/alanis-morissette-ironic.opus",
+    "date": "2022-05-19",
+    "duration": "4:25"
+  },
+  {
+    "id": 71,
+    "title": "Call Me a Dog",
+    "artist": "Temple of the Dog",
+    "src": "assets/temple-of-the-dog-call-me-a-dog.opus",
+    "date": "2022-05-17",
+    "duration": "5:04"
+  },
+  {
+    "id": 72,
+    "title": "Black Hole Sun",
+    "artist": "Soundgarden",
+    "src": "assets/soundgarden-black-hole-sun.opus",
+    "date": "2022-04-28",
+    "duration": "5:45"
+  },
+  {
+    "id": 73,
+    "title": "Shine",
+    "artist": "Collective Soul",
+    "src": "assets/collective-soul-shine.opus",
+    "date": "2022-04-09",
+    "duration": "2:58"
+  },
+  {
+    "id": 74,
+    "title": "Something in the Way",
+    "artist": "Nirvana",
+    "src": "assets/nirvana-something-in-the-way.opus",
+    "date": "2022-04-08",
+    "duration": "3:52"
+  },
+  {
+    "id": 75,
+    "title": "Roll the Old Chariot Along",
+    "artist": "David Coffin",
+    "src": "assets/david-coffin-roll-the-old-chariot-along.opus",
+    "date": "2022-03-28",
+    "duration": "3:02"
+  },
+  {
+    "id": 76,
+    "title": "Porcelain",
+    "artist": "Red Hot Chili Peppers",
+    "src": "assets/red-hot-chili-peppers-porcelain.opus",
+    "date": "2022-03-24",
+    "duration": "3:13"
+  },
+  {
+    "id": 77,
+    "title": "Elastic Heart",
+    "artist": "Sia",
+    "src": "assets/sia-elastic-heart.opus",
+    "date": "2022-03-23",
+    "duration": "3:56"
+  },
+  {
+    "id": 78,
+    "title": "Zombie",
+    "artist": "The Cranberries",
+    "src": "assets/the-cranberries-zombie.opus",
+    "date": "2022-03-14",
+    "duration": "4:09"
+  },
+  {
+    "id": 79,
+    "title": "Use Somebody",
+    "artist": "Kings of Leon",
+    "src": "assets/kings-of-leon-use-somebody.opus",
+    "date": "2022-03-14",
+    "duration": "3:11"
+  },
+  {
+    "id": 80,
+    "title": "The Zephyr Song",
+    "artist": "Red Hot Chili Peppers",
+    "src": "assets/red-hot-chili-peppers-the-zephyr-song.opus",
+    "date": "2022-03-01",
+    "duration": "4:12"
+  },
+  {
+    "id": 81,
+    "title": "Óleo de Mujer con Sombrero",
+    "artist": "Silvio Rodríguez",
+    "src": "assets/silvio-rodriguez-oleo-de-mujer-con-sombrero.opus",
+    "date": "2022-03-01",
+    "duration": "2:48"
+  },
+  {
+    "id": 82,
+    "title": "Dead & Bloated",
+    "artist": "Stone Temple Pilots",
+    "src": "assets/stone-temple-pilots-dead-bloated.opus",
+    "date": "2022-02-20",
+    "duration": "3:23"
+  },
+  {
+    "id": 83,
+    "title": "Rooster",
+    "artist": "Alice in Chains",
+    "src": "assets/alice-in-chains-rooster.opus",
+    "date": "2022-02-12",
+    "duration": "6:34"
+  },
+  {
+    "id": 84,
+    "title": "Al Final",
+    "artist": "Comendatore",
+    "src": "assets/comendatore-al-final.opus",
+    "date": "2022-01-17",
+    "duration": "5:49"
+  },
+  {
+    "id": 85,
+    "title": "Only in Dreams",
+    "artist": "Weezer",
+    "src": "assets/weezer-only-in-dreams.opus",
+    "date": "2022-01-14",
+    "duration": "4:22"
+  },
+  {
+    "id": 86,
+    "title": "Ciega, Sordomuda",
+    "artist": "Shakira",
+    "src": "assets/shakira-ciega-sordomuda.opus",
+    "date": "2021-12-29",
+    "duration": "4:09"
+  },
+  {
+    "id": 87,
+    "title": "La Isla del Sol",
+    "artist": "El Símbolo",
+    "src": "assets/el-simbolo-la-isla-del-sol.opus",
+    "date": "2021-12-28",
+    "duration": "2:17"
+  },
+  {
+    "id": 88,
+    "title": "Can't Stop",
+    "artist": "Red Hot Chili Peppers",
+    "src": "assets/red-hot-chili-peppers-cant-stop.opus",
+    "date": "2021-12-18",
+    "duration": "4:06"
+  },
+  {
+    "id": 89,
+    "title": "Jamie",
+    "artist": "Weezer",
+    "src": "assets/weezer-jamie.opus",
+    "date": "2021-11-13",
+    "duration": "3:48"
+  },
+  {
+    "id": 90,
+    "title": "Times Like These",
+    "artist": "Foo Fighters",
+    "src": "assets/foo-fighters-times-like-these.opus",
+    "date": "2021-10-08",
+    "duration": "3:09"
+  },
+  {
+    "id": 91,
+    "title": "Dos Días en la Vida",
+    "artist": "Fito Páez",
+    "src": "assets/fito-paez-dos-dias-en-la-vida.opus",
+    "date": "2021-10-06",
+    "duration": "3:04"
+  },
+  {
+    "id": 92,
+    "title": "Elefantes en Europa",
+    "artist": "Divididos",
+    "src": "assets/divididos-elefantes-en-europa.opus",
+    "date": "2021-10-05",
+    "duration": "2:43"
+  },
+  {
+    "id": 93,
+    "title": "September",
+    "artist": "Earth, Wind & Fire",
+    "src": "assets/earth-wind-fire-september.opus",
+    "date": "2021-09-30",
+    "duration": "2:41"
+  },
+  {
+    "id": 94,
+    "title": "Venice Queen",
+    "artist": "Red Hot Chili Peppers",
+    "src": "assets/red-hot-chili-peppers-venice-queen.opus",
+    "date": "2021-09-08",
+    "duration": "5:45"
+  },
+  {
+    "id": 95,
+    "title": "Mariposa Tecknicolor",
+    "artist": "Fito Páez",
+    "src": "assets/fito-paez-mariposa-tecknicolor.opus",
+    "date": "2021-08-24",
+    "duration": "0:56"
+  },
+  {
+    "id": 96,
+    "title": "Te Vi",
+    "artist": "Fito Páez",
+    "src": "assets/fito-paez-te-vi.opus",
+    "date": "2021-08-24",
+    "duration": "4:05"
+  },
+  {
+    "id": 97,
+    "title": "Tu Amor",
+    "artist": "Charly García & Pedro Aznar",
+    "src": "assets/charly-garcia-pedro-aznar-tu-amor.opus",
+    "date": "2021-08-21",
+    "duration": "3:03"
+  },
+  {
+    "id": 98,
+    "title": "I Want It That Way",
+    "artist": "Backstreet Boys",
+    "src": "assets/backstreet-boys-i-want-it-that-way.opus",
+    "date": "2021-08-05",
+    "duration": "3:53"
+  },
+  {
+    "id": 99,
+    "title": "Would?",
+    "artist": "Alice in Chains",
+    "src": "assets/alice-in-chains-would.opus",
+    "date": "2021-07-21",
+    "duration": "3:59"
+  },
+  {
+    "id": 100,
+    "title": "Kickapoo",
+    "artist": "Tenacious D",
+    "src": "assets/tenacious-d-kickapoo.opus",
+    "date": "2021-07-10",
+    "duration": "4:44"
+  },
+  {
+    "id": 101,
+    "title": "It Ain't Over 'til It's Over",
+    "artist": "Lenny Kravitz",
+    "src": "assets/lenny-kravitz-it-aint-over-til-its-over.opus",
+    "date": "2021-07-08",
+    "duration": "1:59"
+  },
+  {
+    "id": 102,
+    "title": "Hero of the Day",
+    "artist": "Metallica",
+    "src": "assets/metallica-hero-of-the-day.opus",
+    "date": "2021-06-27",
+    "duration": "4:21"
+  },
+  {
+    "id": 103,
+    "title": "My Hero",
+    "artist": "Foo Fighters",
+    "src": "assets/foo-fighters-my-hero.opus",
+    "date": "2021-06-27",
+    "duration": "3:17"
+  },
+  {
+    "id": 104,
+    "title": "Message in a Bottle",
+    "artist": "The Police",
+    "src": "assets/the-police-message-in-a-bottle.opus",
+    "date": "2021-06-23",
+    "duration": "4:30"
+  },
+  {
+    "id": 105,
+    "title": "Todo Cambia",
+    "artist": "Mercedes Sosa",
+    "src": "assets/mercedes-sosa-todo-cambia.opus",
+    "date": "2021-05-28",
+    "duration": "1:37"
+  },
+  {
+    "id": 106,
+    "title": "Strip My Mind",
+    "artist": "Red Hot Chili Peppers",
+    "src": "assets/red-hot-chili-peppers-strip-my-mind.opus",
+    "date": "2021-05-20",
+    "duration": "4:24"
+  },
+  {
+    "id": 107,
+    "title": "No Podrás",
+    "artist": "Cristian Castro",
+    "src": "assets/cristian-castro-no-podras.opus",
+    "date": "2021-05-16",
+    "duration": "1:57"
+  },
+  {
+    "id": 108,
+    "title": "My Name Is Jonas",
+    "artist": "Weezer",
+    "src": "assets/weezer-my-name-is-jonas.opus",
+    "date": "2021-05-07",
+    "duration": "3:04"
+  },
+  {
+    "id": 109,
+    "title": "Parallel Universe",
+    "artist": "Red Hot Chili Peppers",
+    "src": "assets/red-hot-chili-peppers-parallel-universe.opus",
+    "date": "2021-05-01",
+    "duration": "4:02"
+  },
+  {
+    "id": 110,
+    "title": "Never Gonna Give You Up",
+    "artist": "Rick Astley",
+    "src": "assets/rick-astley-never-gonna-give-you-up.opus",
+    "date": "2021-05-01",
+    "duration": "2:10"
+  },
+  {
+    "id": 111,
+    "title": "How Deep Is Your Love",
+    "artist": "Bee Gees",
+    "src": "assets/bee-gees-how-deep-is-your-love.opus",
+    "date": "2021-04-24",
+    "duration": "3:51"
+  },
+  {
+    "id": 112,
+    "title": "Sour Girl",
+    "artist": "Stone Temple Pilots",
+    "src": "assets/stone-temple-pilots-sour-girl.opus",
+    "date": "2021-04-15",
+    "duration": "4:45"
+  },
+  {
+    "id": 113,
+    "title": "Crimen",
+    "artist": "Gustavo Cerati",
+    "src": "assets/gustavo-cerati-crimen.opus",
+    "date": "2021-04-14",
+    "duration": "5:26"
+  },
+  {
+    "id": 114,
+    "title": "Killer Queen",
+    "artist": "Queen",
+    "src": "assets/queen-killer-queen.opus",
+    "date": "2021-04-10",
+    "duration": "0:33"
+  },
+  {
+    "id": 115,
+    "title": "Vida de Topos",
+    "artist": "Divididos",
+    "src": "assets/divididos-vida-de-topos.opus",
+    "date": "2021-04-07",
+    "duration": "4:31"
+  },
+  {
+    "id": 116,
+    "title": "Johnny B",
+    "artist": "Chuck Berry",
+    "src": "assets/chuck-berry-johnny-b.opus",
+    "date": "2021-04-01",
+    "duration": "1:28"
+  },
+  {
+    "id": 117,
+    "title": "My Bed",
+    "artist": "Malavera",
+    "src": "assets/malavera-my-bed.opus",
+    "date": "2021-03-27",
+    "duration": "3:38"
+  },
+  {
+    "id": 118,
+    "title": "Vida",
+    "artist": "Also Sprach",
+    "src": "assets/also-sprach-vida.opus",
+    "date": "2021-03-16",
+    "duration": "4:42"
+  },
+  {
+    "id": 119,
+    "title": "Love of My Life",
+    "artist": "Queen",
+    "src": "assets/queen-love-of-my-life.opus",
+    "date": "2021-03-12",
+    "duration": "1:37"
+  },
+  {
+    "id": 120,
+    "title": "Hallelujah",
+    "artist": "Leonard Cohen",
+    "src": "assets/leonard-cohen-hallelujah.opus",
+    "date": "2021-03-12",
+    "duration": "5:34"
+  },
+  {
+    "id": 121,
+    "title": "Ender Will Save Us",
+    "artist": "Dashboard Confessional",
+    "src": "assets/dashboard-confessional-ender-will-save-us.opus",
+    "date": "2021-03-12",
+    "duration": "2:25"
+  },
+  {
+    "id": 122,
+    "title": "Qué Pasa Conmigo",
+    "artist": "Divididos",
+    "src": "assets/divididos-que-pasa-conmigo.opus",
+    "date": "2021-03-12",
+    "duration": "3:55"
+  },
+  {
+    "id": 123,
+    "title": "Oír Tu Voz",
+    "artist": "Enlace",
+    "src": "assets/enlace-oir-tu-voz.opus",
+    "date": "2021-02-11",
+    "duration": "3:43"
+  },
+  {
+    "id": 124,
+    "title": "Ya No Sos Igual",
+    "artist": "2 Minutos",
+    "src": "assets/2-minutos-ya-no-sos-igual.opus",
+    "date": "2021-02-02",
+    "duration": "1:06"
+  },
+  {
+    "id": 125,
+    "title": "Par Mil",
+    "artist": "Divididos",
+    "src": "assets/divididos-par-mil.opus",
+    "date": "2021-01-19",
+    "duration": "1:14"
+  },
+  {
+    "id": 126,
+    "title": "Salir a Comprar",
+    "artist": "Divididos",
+    "src": "assets/divididos-salir-a-comprar.opus",
+    "date": "2021-01-19",
+    "duration": "3:11"
+  },
+  {
+    "id": 127,
+    "title": "Paranoid Android",
+    "artist": "Radiohead",
+    "src": "assets/radiohead-paranoid-android.opus",
+    "date": "2021-01-17",
+    "duration": "6:00"
+  },
+  {
+    "id": 128,
+    "title": "The Pretender",
+    "artist": "Foo Fighters",
+    "src": "assets/foo-fighters-the-pretender.opus",
+    "date": "2021-01-05",
+    "duration": "4:29"
+  },
+  {
+    "id": 129,
+    "title": "I'll Be There for You",
+    "artist": "The Rembrandts",
+    "src": "assets/the-rembrandts-ill-be-there-for-you.opus",
+    "date": "2020-12-31",
+    "duration": "0:53"
+  },
+  {
+    "id": 130,
+    "title": "Island in the Sun",
+    "artist": "Weezer",
+    "src": "assets/weezer-island-in-the-sun.opus",
+    "date": "2020-12-31",
+    "duration": "1:57"
+  },
+  {
+    "id": 131,
+    "title": "Amigos",
+    "artist": "Los Enanitos Verdes",
+    "src": "assets/los-enanitos-verdes-amigos.opus",
+    "date": "2020-12-16",
+    "duration": "2:27"
+  },
+  {
+    "id": 132,
+    "title": "Living in Your Letters",
+    "artist": "Dashboard Confessional",
+    "src": "assets/dashboard-confessional-living-in-your-letters.opus",
+    "date": "2020-12-13",
+    "duration": "4:54"
+  },
+  {
+    "id": 133,
+    "title": "Easily",
+    "artist": "Red Hot Chili Peppers",
+    "src": "assets/red-hot-chili-peppers-easily.opus",
+    "date": "2020-12-13",
+    "duration": "3:51"
+  },
+  {
+    "id": 134,
+    "title": "Black",
+    "artist": "Pearl Jam",
+    "src": "assets/pearl-jam-black.opus",
+    "date": "2020-12-13",
+    "duration": "6:01"
+  },
+  {
+    "id": 135,
+    "title": "20 Años Atrás",
+    "artist": "Also Sprach",
+    "src": "assets/also-sprach-20-anos-atras.opus",
+    "date": "2020-12-13",
+    "duration": "4:49"
+  },
+  {
+    "id": 136,
+    "title": "Heaven's Already Here",
+    "artist": "Collective Soul",
+    "src": "assets/collective-soul-heavens-already-here.opus",
+    "date": "2020-12-05",
+    "duration": "2:02"
+  },
+  {
+    "id": 137,
+    "title": "Time (You and I)",
+    "artist": "Khruangbin",
+    "src": "assets/khruangbin-time-you-and-i.opus",
+    "date": "2020-12-05",
+    "duration": "1:20"
+  },
+  {
+    "id": 138,
+    "title": "Don't Speak",
+    "artist": "No Doubt",
+    "src": "assets/no-doubt-dont-speak.opus",
+    "date": "2020-12-04",
+    "duration": "3:13"
+  },
+  {
+    "id": 139,
+    "title": "Los Aviones",
+    "artist": "Andrés Calamaro",
+    "src": "assets/andres-calamaro-los-aviones.opus",
+    "date": "2020-12-03",
+    "duration": "4:18"
+  },
+  {
+    "id": 140,
+    "title": "Complicated",
+    "artist": "Avril Lavigne",
+    "src": "assets/avril-lavigne-complicated.opus",
+    "date": "2020-12-01",
+    "duration": "2:17"
+  },
+  {
+    "id": 141,
+    "title": "La Mano de Dios",
+    "artist": "Rodrigo",
+    "src": "assets/rodrigo-la-mano-de-dios.opus",
+    "date": "2020-11-25",
+    "duration": "2:38"
+  },
+  {
+    "id": 142,
+    "title": "You Oughta Know",
+    "artist": "Alanis Morissette",
+    "src": "assets/alanis-morissette-you-oughta-know.opus",
+    "date": "2020-11-19",
+    "duration": "4:47"
+  },
+  {
+    "id": 143,
+    "title": "Teenage Dirtbag",
+    "artist": "Wheatus",
+    "src": "assets/wheatus-teenage-dirtbag.opus",
+    "date": "2020-11-19",
+    "duration": "4:00"
+  },
+  {
+    "id": 144,
+    "title": "Natural Blues",
+    "artist": "Moby",
+    "src": "assets/moby-natural-blues.opus",
+    "date": "2020-11-09",
+    "duration": "2:48"
+  },
+  {
+    "id": 145,
+    "title": "Durazno",
+    "artist": "Piloco Pier",
+    "src": "assets/piloco-pier-durazno.opus",
+    "date": "2020-10-27",
+    "duration": "0:31"
+  },
+  {
+    "id": 146,
+    "title": "Because",
+    "artist": "The Beatles",
+    "src": "assets/the-beatles-because.opus",
+    "date": "2020-10-25",
+    "duration": "2:11"
+  },
+  {
+    "id": 147,
+    "title": "I Got a Woman",
+    "artist": "Ray Charles",
+    "src": "assets/ray-charles-i-got-a-woman.opus",
+    "date": "2020-09-25",
+    "duration": "2:56"
+  },
+  {
+    "id": 148,
+    "title": "I Want to Hold Your Hand",
+    "artist": "The Beatles",
+    "src": "assets/the-beatles-i-want-to-hold-your-hand.opus",
+    "date": "2020-09-25",
+    "duration": "2:48"
+  },
+  {
+    "id": 149,
+    "title": "No One Else",
+    "artist": "Weezer",
+    "src": "assets/weezer-no-one-else.opus",
+    "date": "2020-09-08",
+    "duration": "2:57"
+  },
+  {
+    "id": 150,
+    "title": "Por Ejemplo",
+    "artist": "Fernando Cabrera",
+    "src": "assets/fernando-cabrera-por-ejemplo.opus",
+    "date": "2020-09-06",
+    "duration": "2:57"
+  },
+  {
+    "id": 151,
+    "title": "Gárgara Larga",
+    "artist": "Divididos",
+    "src": "assets/divididos-gargara-larga.opus",
+    "date": "2020-09-04",
+    "duration": "4:09"
+  },
+  {
+    "id": 152,
+    "title": "Fuiste",
+    "artist": "Gilda",
+    "src": "assets/gilda-fuiste.opus",
+    "date": "2020-08-27",
+    "duration": "0:57"
+  },
+  {
+    "id": 153,
+    "title": "Cortarme el Pelo",
+    "artist": "Also Sprach",
+    "src": "assets/also-sprach-cortarme-el-pelo.opus",
+    "date": "2020-08-17",
+    "duration": "3:24"
+  },
+  {
+    "id": 154,
+    "title": "Jeremy",
+    "artist": "Pearl Jam",
+    "src": "assets/pearl-jam-jeremy.opus",
+    "date": "2020-07-22",
+    "duration": "6:35"
+  },
+  {
+    "id": 155,
+    "title": "Higher Ground",
+    "artist": "Stevie Wonder",
+    "src": "assets/stevie-wonder-higher-ground.opus",
+    "date": "2020-07-21",
+    "duration": "3:38"
+  },
+  {
+    "id": 156,
+    "title": "More Than Words",
+    "artist": "Extreme",
+    "src": "assets/extreme-more-than-words.opus",
+    "date": "2020-07-21",
+    "duration": "4:15"
+  },
+  {
+    "id": 157,
+    "title": "Un Vestido y un Amor",
+    "artist": "Fito Páez",
+    "src": "assets/fito-paez-un-vestido-y-un-amor.opus",
+    "date": "2020-07-14",
+    "duration": "4:01"
+  },
+  {
+    "id": 158,
+    "title": "Midnight Blur 2",
+    "artist": "Manu",
+    "src": "assets/manu-midnight-blur-2.opus",
+    "date": "2020-07-08",
+    "duration": "2:46"
+  },
+  {
+    "id": 159,
+    "title": "Billie Jean",
+    "artist": "Michael Jackson",
+    "src": "assets/michael-jackson-billie-jean.opus",
+    "date": "2020-07-04",
+    "duration": "4:48"
+  },
+  {
+    "id": 160,
+    "title": "Radio Ga Ga",
+    "artist": "Queen",
+    "src": "assets/queen-radio-ga-ga.opus",
+    "date": "2020-06-25",
+    "duration": "4:50"
+  },
+  {
+    "id": 161,
+    "title": "How Soon Is Now",
+    "artist": "The Smiths",
+    "src": "assets/the-smiths-how-soon-is-now.opus",
+    "date": "2020-06-23",
+    "duration": "4:26"
+  },
+  {
+    "id": 162,
+    "title": "Like a Stone",
+    "artist": "Audioslave",
+    "src": "assets/audioslave-like-a-stone.opus",
+    "date": "2020-06-19",
+    "duration": "6:03"
+  },
+  {
+    "id": 163,
+    "title": "Aeroplane",
+    "artist": "Red Hot Chili Peppers",
+    "src": "assets/red-hot-chili-peppers-aeroplane.opus",
+    "date": "2020-06-15",
+    "duration": "5:01"
+  },
+  {
+    "id": 164,
+    "title": "Master Blaster",
+    "artist": "Stevie Wonder",
+    "src": "assets/stevie-wonder-master-blaster.opus",
+    "date": "2020-06-07",
+    "duration": "1:16"
+  },
+  {
+    "id": 165,
+    "title": "Between the Bars",
+    "artist": "Elliott Smith",
+    "src": "assets/elliott-smith-between-the-bars.opus",
+    "date": "2020-06-04",
+    "duration": "0:54"
+  },
+  {
+    "id": 166,
+    "title": "Dame un Limón",
+    "artist": "Divididos",
+    "src": "assets/divididos-dame-un-limon.opus",
+    "date": "2020-06-04",
+    "duration": "0:44"
+  },
+  {
+    "id": 167,
+    "title": "Sábado",
+    "artist": "Divididos",
+    "src": "assets/divididos-sabado.opus",
+    "date": "2020-06-04",
+    "duration": "6:12"
+  },
+  {
+    "id": 168,
+    "title": "Let It Be",
+    "artist": "The Beatles",
+    "src": "assets/the-beatles-let-it-be.opus",
+    "date": "2020-06-04",
+    "duration": "4:27"
+  },
+  {
+    "id": 169,
+    "title": "Stand by My Woman",
+    "artist": "Lenny Kravitz",
+    "src": "assets/lenny-kravitz-stand-by-my-woman.opus",
+    "date": "2020-06-03",
+    "duration": "3:02"
+  },
+  {
+    "id": 170,
+    "title": "Mad World",
+    "artist": "Tears for Fears",
+    "src": "assets/tears-for-fears-mad-world.opus",
+    "date": "2020-05-30",
+    "duration": "3:30"
+  },
+  {
+    "id": 171,
+    "title": "Titanium",
+    "artist": "David Guetta & Sia",
+    "src": "assets/david-guetta-sia-titanium.opus",
+    "date": "2020-05-30",
+    "duration": "3:45"
+  },
+  {
+    "id": 172,
+    "title": "God Put a Smile upon Your Face",
+    "artist": "Coldplay",
+    "src": "assets/coldplay-god-put-a-smile-upon-your-face.opus",
+    "date": "2020-05-29",
+    "duration": "4:26"
+  },
+  {
+    "id": 173,
+    "title": "Fake Plastic Trees",
+    "artist": "Radiohead",
+    "src": "assets/radiohead-fake-plastic-trees.opus",
+    "date": "2020-05-29",
+    "duration": "5:45"
+  },
+  {
+    "id": 174,
+    "title": "Huelga de Amores",
+    "artist": "Divididos",
+    "src": "assets/divididos-huelga-de-amores.opus",
+    "date": "2020-05-23",
+    "duration": "1:54"
+  },
+  {
+    "id": 175,
+    "title": "You're Beautiful",
+    "artist": "James Blunt",
+    "src": "assets/james-blunt-youre-beautiful.opus",
+    "date": "2020-05-17",
+    "duration": "3:25"
+  },
+  {
+    "id": 176,
+    "title": "I Will Always Love You",
+    "artist": "Whitney Houston",
+    "src": "assets/whitney-houston-i-will-always-love-you.opus",
+    "date": "2020-05-09",
+    "duration": "4:25"
+  },
+  {
+    "id": 177,
+    "title": "Pero Te Quiero",
+    "artist": "YouTube",
+    "src": "assets/youtube-pero-te-quiero.opus",
+    "date": "2020-04-24",
+    "duration": "2:42"
+  },
+  {
+    "id": 178,
+    "title": "Ain't No Sunshine",
+    "artist": "Bill Withers",
+    "src": "assets/bill-withers-aint-no-sunshine.opus",
+    "date": "2020-04-20",
+    "duration": "2:53"
+  },
+  {
+    "id": 179,
+    "title": "Hey Jude",
+    "artist": "The Beatles",
+    "src": "assets/the-beatles-hey-jude.opus",
+    "date": "2020-04-18",
+    "duration": "4:58"
+  },
+  {
+    "id": 180,
+    "title": "Outshined",
+    "artist": "Soundgarden",
+    "src": "assets/soundgarden-outshined.opus",
+    "date": "2020-03-12",
+    "duration": "5:40"
+  },
+  {
+    "id": 181,
+    "title": "Everlong",
+    "artist": "Foo Fighters",
+    "src": "assets/foo-fighters-everlong.opus",
+    "date": "2019-12-06",
+    "duration": "3:28"
+  },
+  {
+    "id": 182,
+    "title": "Maxwell's Silver Hammer",
+    "artist": "The Beatles",
+    "src": "assets/the-beatles-maxwells-silver-hammer.opus",
+    "date": "2019-11-20",
+    "duration": "0:59"
+  },
+  {
+    "id": 183,
+    "title": "The Long and Winding Road",
+    "artist": "The Beatles",
+    "src": "assets/the-beatles-the-long-and-winding-road.opus",
+    "date": "2019-09-28",
+    "duration": "2:34"
+  },
+  {
+    "id": 184,
+    "title": "María",
+    "artist": "Ricky Martin",
+    "src": "assets/ricky-martin-maria.opus",
+    "date": "2019-09-26",
+    "duration": "0:33"
+  },
+  {
+    "id": 185,
+    "title": "Bajan",
+    "artist": "Pescado Rabioso",
+    "src": "assets/pescado-rabioso-bajan.opus",
+    "date": "2019-09-26",
+    "duration": "3:25"
+  },
+  {
+    "id": 186,
+    "title": "Walk",
+    "artist": "Foo Fighters",
+    "src": "assets/foo-fighters-walk.opus",
+    "date": "2019-01-31",
+    "duration": "4:25"
+  },
+  {
+    "id": 187,
+    "title": "The Way You Make Me Feel",
+    "artist": "Michael Jackson",
+    "src": "assets/michael-jackson-the-way-you-make-me-feel.opus",
+    "date": "2019-01-31",
+    "duration": "1:20"
+  },
+  {
+    "id": 188,
+    "title": "Porch",
+    "artist": "Pearl Jam",
+    "src": "assets/pearl-jam-porch.opus",
+    "date": "2019-01-31",
+    "duration": "3:13"
+  },
+  {
+    "id": 189,
+    "title": "Perros Perdidos",
+    "artist": "Divididos",
+    "src": "assets/divididos-perros-perdidos.opus",
+    "date": "2019-01-31",
+    "duration": "2:30"
+  },
+  {
+    "id": 190,
+    "title": "Mentirosa",
+    "artist": "Ráfaga",
+    "src": "assets/rafaga-mentirosa.opus",
+    "date": "2019-01-31",
+    "duration": "1:27"
+  },
+  {
+    "id": 191,
+    "title": "Eleanor Rigby",
+    "artist": "The Beatles",
+    "src": "assets/the-beatles-eleanor-rigby.opus",
+    "date": "2019-01-31",
+    "duration": "2:52"
+  },
+  {
+    "id": 192,
+    "title": "En lo de Juani",
+    "artist": "Manu",
+    "src": "assets/manu-en-lo-de-juani.opus",
+    "date": "2018-12-18",
+    "duration": "11:22"
+  },
+  {
+    "id": 193,
+    "title": "Creep",
+    "artist": "Radiohead",
+    "src": "assets/radiohead-creep.opus",
+    "date": "2018-10-27",
+    "duration": "4:08"
+  },
+  {
+    "id": 194,
+    "title": "Holanda",
+    "artist": "Luis Alberto Spinetta",
+    "src": "assets/luis-alberto-spinetta-holanda.opus",
+    "date": "2018-06-02",
+    "duration": "3:39"
+  },
+  {
+    "id": 195,
+    "title": "Good Riddance",
+    "artist": "Green Day",
+    "src": "assets/green-day-good-riddance.opus",
+    "date": "2018-06-02",
+    "duration": "1:56"
+  },
+  {
+    "id": 196,
+    "title": "Seminare",
+    "artist": "Serú Girán",
+    "src": "assets/seru-giran-seminare.opus",
+    "date": "2018-05-31",
+    "duration": "2:49"
+  },
+  {
+    "id": 197,
+    "title": "Error",
+    "artist": "Enlace",
+    "src": "assets/enlace-error.opus",
+    "date": "2018-02-02",
+    "duration": "2:51"
+  },
+  {
+    "id": 198,
+    "title": "Alarma",
+    "artist": "Manu",
+    "src": "assets/manu-alarma.opus",
+    "date": "2018-02-02",
+    "duration": "0:34"
+  }
+]

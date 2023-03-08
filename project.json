@@ -1,0 +1,11 @@
+{
+  "langrev": "1",
+  "version": "0.1.0",
+  "sources": [ "src/**" ],
+  "output": "build",
+  "targets": {
+    "site_builder": {
+      "type": "executable"
+    }
+  }
+}

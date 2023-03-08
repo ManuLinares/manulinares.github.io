@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Manuel Barrio Linares</title>
+	<link rel="icon" href="avatar.webp" type="image/x-icon">
+	<style>
+		:root {
+			--text: #fff;
+			--bg: #000;
+			--bg-gradient: radial-gradient(ellipse at bottom, rgba(245, 70, 66, 0.25) 0%, #000 65%), url('flcl.webp') center / cover no-repeat fixed;
+			--profile-border: rgba(255, 255, 255, 0.3);
+			--profile-border-hover: #fff;
+			--tooltip-bg: rgba(17, 20, 29, 0.95);
+			--tooltip-border: rgba(255, 255, 255, 0.2);
+			--tooltip-text: #fff;
+			--link-bg: rgba(255, 255, 255, 0.08);
+			--link-border: rgba(255, 255, 255, 0.25);
+			--link-color: #fff;
+			--link-hover-bg: #fff;
+			--link-hover-color: #000;
+			--blog-title-color: rgba(255, 255, 255, 0.5);
+			--blog-link-color: #fff;
+			--blog-date-color: rgba(255, 255, 255, 0.4);
+			--blog-hover-bg: rgba(255, 255, 255, 0.08);
+			--hashtag-shine: #fff;
+			--shadow: rgba(0, 0, 0, 0.5);
+		}
+
+		@media (prefers-color-scheme: light) {
+			:root {
+				--text: #1f2937;
+				--bg: #f9fafb;
+				--bg-gradient:
+					radial-gradient(ellipse at bottom, rgba(245, 70, 66, 0.08) 0%, transparent 70%),
+					linear-gradient(rgba(249, 250, 251, 0.88), rgba(249, 250, 251, 0.88)),
+					url('flcl.webp') center / cover no-repeat fixed #f9fafb;
+				--profile-border: rgba(0, 0, 0, 0.2);
+				--profile-border-hover: #1f2937;
+				--tooltip-bg: rgba(255, 255, 255, 0.95);
+				--tooltip-border: rgba(0, 0, 0, 0.15);
+				--tooltip-text: #1f2937;
+				--link-bg: rgba(0, 0, 0, 0.05);
+				--link-border: rgba(0, 0, 0, 0.15);
+				--link-color: #1f2937;
+				--link-hover-bg: #1f2937;
+				--link-hover-color: #fff;
+				--blog-title-color: rgba(0, 0, 0, 0.5);
+				--blog-link-color: #1f2937;
+				--blog-date-color: rgba(0, 0, 0, 0.45);
+				--blog-hover-bg: rgba(0, 0, 0, 0.05);
+				--hashtag-shine: #1f2937;
+				--shadow: rgba(0, 0, 0, 0.12);
+			}
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			margin: 0;
+			padding: 64px 16px 24px;
+			min-height: 100dvh;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			font-family: system-ui, sans-serif;
+			background: var(--bg-gradient);
+			color: var(--text);
+		}
+
+		#stars {
+			position: fixed;
+			inset: 0;
+			z-index: -1;
+			pointer-events: none;
+			transform: translateZ(0);
+		}
+
+		#profilePicture {
+			position: relative;
+			width: 96px;
+			height: 96px;
+			margin-bottom: 16px;
+			border-radius: 50%;
+			border: 2px solid var(--profile-border);
+			transition: transform 0.2s, border-color 0.2s;
+		}
+
+		#profilePicture:hover {
+			transform: scale(1.05);
+			border-color: var(--profile-border-hover);
+		}
+
+		#profilePicture img {
+			width: 100%;
+			height: 100%;
+			border-radius: 50%;
+			object-fit: cover;
+			display: block;
+		}
+
+		.quote-tooltip {
+			position: absolute;
+			bottom: calc(100% + 12px);
+			left: 50%;
+			transform: translateX(-50%) translateY(6px);
+			width: max-content;
+			max-width: min(280px, 80vw);
+			padding: 8px 14px;
+			border-radius: 8px;
+			background: var(--tooltip-bg);
+			border: 1px solid var(--tooltip-border);
+			color: var(--tooltip-text);
+			font-family: Baskerville, Georgia, serif;
+			font-style: italic;
+			font-size: 0.9rem;
+			line-height: 1.35;
+			text-align: center;
+			pointer-events: none;
+			opacity: 0;
+			transition: opacity 0.2s, transform 0.2s;
+			z-index: 10;
+			box-shadow: 0 4px 16px var(--shadow);
+		}
+
+		.quote-tooltip::before {
+			content: '';
+			position: absolute;
+			bottom: -5px;
+			left: 50%;
+			transform: translateX(-50%) rotate(45deg);
+			width: 8px;
+			height: 8px;
+			background: var(--tooltip-bg);
+			border-bottom: 1px solid var(--tooltip-border);
+			border-right: 1px solid var(--tooltip-border);
+		}
+
+		#profilePicture:hover .quote-tooltip {
+			opacity: 1;
+			transform: translateX(-50%) translateY(0);
+		}
+
+		#userName {
+			font-size: 1rem;
+			font-weight: 700;
+			letter-spacing: -0.01em;
+			color: var(--text);
+			text-decoration: none;
+			margin-bottom: 24px;
+			transition: opacity 0.2s;
+		}
+
+		#userName:hover {
+			opacity: 0.8;
+			text-decoration: underline;
+		}
+
+		#links {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 12px;
+			max-width: 420px;
+			margin-bottom: 24px;
+		}
+
+		.link {
+			position: relative;
+			width: 44px;
+			height: 44px;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 50%;
+			background: var(--link-bg);
+			border: 1px solid var(--link-border);
+			color: var(--link-color);
+			text-decoration: none;
+			transition: background-color 0.15s, color 0.15s;
+		}
+
+		.link:hover {
+			background: var(--link-hover-bg);
+			color: var(--link-hover-color);
+		}
+
+		.link>* {
+			transition: transform 0.15s;
+		}
+
+		.link:hover>* {
+			transform: translateY(-2px);
+		}
+
+		.link::before {
+			content: '';
+			position: absolute;
+			bottom: calc(100% + 4px);
+			left: 50%;
+			transform: translateX(-50%) rotate(45deg);
+			width: 6px;
+			height: 6px;
+			background: var(--tooltip-bg);
+			border-bottom: 1px solid var(--tooltip-border);
+			border-right: 1px solid var(--tooltip-border);
+			pointer-events: none;
+			opacity: 0;
+			transition: opacity 0.15s;
+			z-index: 6;
+		}
+
+		.link::after {
+			content: attr(data-tooltip);
+			position: absolute;
+			bottom: calc(100% + 8px);
+			left: 50%;
+			transform: translateX(-50%) translateY(4px);
+			background: var(--tooltip-bg);
+			border: 1px solid var(--tooltip-border);
+			color: var(--tooltip-text);
+			font-size: 0.75rem;
+			font-weight: 600;
+			letter-spacing: 0.02em;
+			padding: 4px 8px;
+			border-radius: 6px;
+			white-space: nowrap;
+			pointer-events: none;
+			opacity: 0;
+			transition: opacity 0.15s, transform 0.15s;
+			box-shadow: 0 4px 12px var(--shadow);
+			z-index: 5;
+		}
+
+		.link:hover::before,
+		.link:hover::after,
+		.link:focus-visible::before,
+		.link:focus-visible::after {
+			opacity: 1;
+		}
+
+		.link:hover::after,
+		.link:focus-visible::after {
+			transform: translateX(-50%) translateY(0);
+		}
+
+		.icon {
+			width: 20px;
+			height: 20px;
+			display: block;
+		}
+
+		.cv-text {
+			font-size: 0.85rem;
+			font-weight: 700;
+			letter-spacing: 0.05em;
+			line-height: 1;
+		}
+
+		#music-btn {
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+			padding: 8px 18px;
+			margin-bottom: 24px;
+			border-radius: 24px;
+			background: var(--link-bg);
+			border: 1px solid var(--link-border);
+			color: var(--link-color);
+			text-decoration: none;
+			font-size: 0.9rem;
+			font-weight: 600;
+			letter-spacing: 0.02em;
+			transition: background-color 0.15s, color 0.15s, transform 0.15s;
+		}
+
+		#music-btn:hover {
+			background: var(--link-hover-bg);
+			color: var(--link-hover-color);
+			transform: translateY(-2px);
+		}
+
+		#blog-section {
+			width: 100%;
+			max-width: 650px;
+			margin: 8px 0 20px;
+		}
+
+		.blog-title {
+			font-size: 0.8rem;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 0.08em;
+			color: var(--blog-title-color);
+			text-align: center;
+			margin-bottom: 10px;
+		}
+
+		.blog-list {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+
+		.blog-list li {
+			display: flex;
+			justify-content: space-between;
+			align-items: baseline;
+			gap: 12px;
+			padding: 6px 10px;
+			border-radius: 6px;
+			transition: background-color 0.15s;
+		}
+
+		.blog-list li:hover {
+			background: var(--blog-hover-bg);
+		}
+
+		.blog-list a {
+			color: var(--blog-link-color);
+			text-decoration: none;
+			font-size: 0.95rem;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+
+		.blog-list a:hover {
+			text-decoration: underline;
+		}
+
+		.blog-list .blog-date {
+			font-size: 0.8rem;
+			color: var(--blog-date-color);
+			font-family: monospace;
+			white-space: nowrap;
+		}
+
+		#hashtag {
+			font-size: 1rem;
+			text-align: center;
+			background: linear-gradient(90deg, transparent, var(--hashtag-shine) 50%, transparent) no-repeat;
+			background-size: 80%;
+			-webkit-background-clip: text;
+			background-clip: text;
+			-webkit-text-fill-color: transparent;
+			color: transparent;
+			animation: shine 3s linear infinite;
+		}
+
+		@keyframes shine {
+			0% {
+				background-position: -500%;
+			}
+			100% {
+				background-position: 500%;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<canvas id="stars"></canvas>
+
+	<div id="profilePicture">
+		<img src="avatar.webp" alt="Manuel Barrio Linares">
+		<div class="quote-tooltip">La mejor forma de predecir el futuro es implementarlo.</div>
+	</div>
+
+	<a id="userName" href="https://www.instagram.com/manu.barriolinares/" target="_blank"
+		rel="noopener noreferrer">@manu.barriolinares</a>
+
+	<nav id="links" aria-label="Social links">
+		<a class="link" href="https://github.com/ManuLinares" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
+			data-tooltip="GitHub">
+			<svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+				<path
+					d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+			</svg>
+		</a>
+		<a class="link" href="https://www.linkedin.com/in/manuel-barrio-linares-597a6b256/" target="_blank"
+			rel="noopener noreferrer" aria-label="LinkedIn" data-tooltip="LinkedIn">
+			<svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+				<path
+					d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451c.979 0 1.778-.773 1.778-1.729V1.73C24 .774 23.205 0 22.225 0z" />
+			</svg>
+		</a>
+		<a class="link" href="cv/" target="_blank" rel="noopener noreferrer" aria-label="CV" data-tooltip="CV">
+			<span class="cv-text">CV</span>
+		</a>
+		<a class="link" href="https://www.facebook.com/manubarriolinares/" target="_blank" rel="noopener noreferrer"
+			aria-label="Facebook" data-tooltip="Facebook">
+			<svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+				<path
+					d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+			</svg>
+		</a>
+		<a class="link" href="https://www.instagram.com/manu.barriolinares/" target="_blank" rel="noopener noreferrer"
+			aria-label="Instagram" data-tooltip="Instagram">
+			<svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+				<path
+					d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+			</svg>
+		</a>
+		<a class="link" href="https://x.com/ManuBLinares" target="_blank" rel="noopener noreferrer" aria-label="X"
+			data-tooltip="X">
+			<svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+				<path
+					d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+			</svg>
+		</a>
+		<a class="link" href="https://www.youtube.com/mbarrio" target="_blank" rel="noopener noreferrer" aria-label="YouTube" data-tooltip="YouTube">
+      <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+    </a>
+  </nav>
+
+  <a id="music-btn" href="music/">
+    <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+    </svg>
+    <span>Music</span>
+  </a>
+
+  <!-- BLOG:START -->
+  <!-- BLOG:END -->
+
+  <div id="hashtag">#Enjoy the little things❤</div>
+
+	<script>
+		const c = document.getElementById('stars');
+		const ctx = c.getContext('2d');
+		const mql = window.matchMedia('(prefers-color-scheme: light)');
+		let w = 0, h = 0;
+
+		const darkColors = ['rgba(255, 255, 255, 0.35)', 'rgba(255, 255, 255, 0.7)', '#fff'];
+		const lightColors = ['rgba(31, 41, 55, 0.2)', 'rgba(31, 41, 55, 0.45)', 'rgba(31, 41, 55, 0.75)'];
+
+		const layers = [
+			[260, 1, 0.2],
+			[100, 2, 0.55],
+			[40, 3, 1.1]
+		].map(([n, size, speed]) => ({
+			size, speed,
+			pts: Array.from({ length: n }, () => ({ x: Math.random() * window.innerWidth, y: Math.random() * window.innerHeight }))
+		}));
+
+		function resize() {
+			w = c.width = window.innerWidth;
+			h = c.height = window.innerHeight;
+		}
+
+		function loop() {
+			ctx.clearRect(0, 0, w, h);
+			const colors = mql.matches ? lightColors : darkColors;
+			for (let i = 0; i < layers.length; i++) {
+				const l = layers[i];
+				ctx.fillStyle = colors[i];
+				for (const p of l.pts) {
+					p.y -= l.speed;
+					if (p.y < 0) { p.y = h; p.x = Math.random() * w; }
+					ctx.fillRect(p.x, p.y, l.size, l.size);
+				}
+			}
+			requestAnimationFrame(loop);
+		}
+
+		window.addEventListener('resize', resize, { passive: true });
+		resize();
+		loop();
+	</script>
+</body>
+
+</html>

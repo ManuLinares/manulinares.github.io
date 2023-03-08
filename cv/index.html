@@ -1,0 +1,339 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CV - José Manuel Barrio Linares</title>
+	<link rel="icon" href="../avatar.webp" type="image/x-icon">
+	<style>
+		:root {
+			--bg: #ffffff;
+			--text: #24292f;
+			--text-bold: #000000;
+			--line: #e1e4e8;
+			--link: #0969da;
+		}
+
+		@media (prefers-color-scheme: dark) {
+			:root {
+				--bg: #0d1117;
+				--text: #c9d1d9;
+				--text-bold: #f0f6fc;
+				--line: #30363d;
+				--link: #58a6ff;
+			}
+		}
+
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			background: var(--bg);
+			color: var(--text);
+			font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+			font-size: 0.95rem;
+			line-height: 1.6;
+			padding: 40px 24px;
+		}
+
+		.container {
+			max-width: 820px;
+			margin: 0 auto;
+		}
+
+		h1 {
+			font-size: 1.5rem;
+			font-weight: 700;
+			color: var(--text-bold);
+			margin-bottom: 20px;
+		}
+
+		h2 {
+			font-size: 1.25rem;
+			font-weight: 700;
+			color: var(--text-bold);
+			margin: 36px 0 16px;
+		}
+
+		.section-title {
+			font-size: 1rem;
+			font-weight: 700;
+			color: var(--text-bold);
+			margin-bottom: 8px;
+		}
+
+		.info-table {
+			border-collapse: collapse;
+			margin-bottom: 24px;
+		}
+
+		.info-table td {
+			padding: 3px 16px 3px 0;
+			vertical-align: top;
+		}
+
+		.info-table td strong {
+			color: var(--text-bold);
+		}
+
+		ul {
+			list-style-type: disc;
+			padding-left: 20px;
+			margin-bottom: 10px;
+		}
+
+		li {
+			margin-bottom: 4px;
+		}
+
+		p {
+			margin-bottom: 8px;
+		}
+
+		a {
+			color: var(--link);
+			text-decoration: underline;
+		}
+
+		/* Intersecting crosshair layout with safe text separation */
+		.entry {
+			margin-bottom: 28px;
+		}
+
+		.entry-header {
+			font-size: 0.95rem;
+			margin-bottom: 12px;
+			color: var(--text);
+		}
+
+		.entry-header em {
+			font-style: italic;
+		}
+
+		.entry-header strong {
+			font-weight: 700;
+			color: var(--text-bold);
+		}
+
+		.entry-box {
+			position: relative;
+			margin-left: 20px;
+			padding: 10px 0 6px 16px;
+			border-top: 1px solid var(--line);
+			border-left: 1px solid var(--line);
+		}
+
+		.entry-box::before {
+			content: '';
+			position: absolute;
+			top: -8px;
+			left: -1px;
+			width: 1px;
+			height: 8px;
+			background: var(--line);
+		}
+
+		.entry-box::after {
+			content: '';
+			position: absolute;
+			top: -1px;
+			left: -16px;
+			width: 16px;
+			height: 1px;
+			background: var(--line);
+		}
+
+		@media print {
+			body {
+				background: #fff;
+				color: #000;
+				padding: 0;
+			}
+
+			.entry-box {
+				break-inside: avoid;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<h1>CV - José Manuel Barrio Linares</h1>
+
+		<div class="section-title">Personal information</div>
+		<table class="info-table">
+			<tr>
+				<td><strong>Name:</strong></td>
+				<td>José Manuel, Barrio Linares</td>
+			</tr>
+			<tr>
+				<td><strong>Birthdate:</strong></td>
+				<td>October 5, 1985</td>
+			</tr>
+			<tr>
+				<td><strong>Nationality:</strong></td>
+				<td>Argentinian</td>
+			</tr>
+			<tr>
+				<td><strong>Place of residence:</strong></td>
+				<td>Hurlingham, Buenos Aires, Argentina</td>
+			</tr>
+			<tr>
+				<td><strong>Contact:</strong></td>
+				<td><a href="mailto:mbarriolinares@gmail.com">mbarriolinares@gmail.com</a></td>
+			</tr>
+			<tr>
+				<td><strong>GitHub:</strong></td>
+				<td><a href="https://github.com/ManuLinares" target="_blank"
+						rel="noopener noreferrer">github.com/ManuLinares</a></td>
+			</tr>
+		</table>
+
+		<div class="section-title">Languages</div>
+		<p>Bilingual Spanish and English.</p>
+
+		<div class="section-title" style="margin-top: 20px;">Studies and Courses</div>
+		<ul>
+			<li>School oriented as “Electromechanical Technician” (Sacred Heart of Jesus Institute).</li>
+			<li>English Academy at Sacred Heart Institute.</li>
+			<li>SQL - Introduction to Oracle 9i and DBA - Database Administrator at Oracle University (2005)</li>
+		</ul>
+
+		<h2>Work Experience in the Technological Area</h2>
+
+		<!-- C3 Language -->
+		<div class="entry">
+			<div class="entry-header"><em>2025 … Present</em> - <strong><a href="https://c3-lang.org/" target="_blank"
+						rel="noopener noreferrer">C3 Language (c3c)</a></strong> ⤵</div>
+			<div class="entry-box">
+				<p>Core Contributor &amp; Maintainer (Open Source)</p>
+				<ul>
+					<li>Core contributor and maintainer of the <a href="https://github.com/c3lang/c3c" target="_blank"
+							rel="noopener noreferrer">C3 compiler toolchain (c3c)</a>, authoring the alternative C code generation
+						backend and cross-compilation SDK fetchers.</li>
+					<li>Authored standard library modules: Deflate/ZIP compression, streaming XML 1.0 parser, JSON reflection
+						unmarshaler, and regular expressions.</li>
+					<li>Contributed platform extensions and stability improvements to <code>std::gfx</code>, including Wayland
+						<code>wlr-layer-shell</code> protocol support and event loop integration.</li>
+					<li>Developed the compiler documentation generator (<code>docgen</code>) and the web playground (<a
+							href="https://play.c3-lang.org/" target="_blank" rel="noopener noreferrer">play.c3-lang.org</a>).</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- Freelance DevOps -->
+		<div class="entry">
+			<div class="entry-header"><em>2014 … Present</em> - <strong>Freelance</strong> ⤵</div>
+			<div class="entry-box">
+				<p>Linux Systems Administrator &amp; DevOps Consultant</p>
+				<ul>
+					<li>Linux systems administration, kernel tuning, and security hardening across Debian, Ubuntu, Arch,
+						RockyLinux, CentOS, RedHat, and SUSE.</li>
+					<li>Infrastructure automation and orchestration with Bash, Python, Docker, Kubernetes, Ansible, and Terraform.
+					</li>
+					<li>Telemetry and monitoring architecture using Zabbix, Prometheus, Grafana, Netdata, and Cacti.</li>
+					<li>SQL database administration, performance optimization, and backup auditing.</li>
+					<li>AI workflow integration, local model runtime deployments, and InfoSEC advisory.</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- SMSConsulting -->
+		<div class="entry">
+			<div class="entry-header"><em>May 2012 … Jan 2014</em> - <strong>SMSConsulting</strong> ⤵</div>
+			<div class="entry-box">
+				<p>Linux Sysadmin and MySQL Databases.<br>
+					Managed backups, service optimization and audits.<br>
+					In charge of maintaining a platform for SMS and AdSense.<br>
+					Developed Web APIs, with an average of 6000 hits/sec per service, php and python.<br>
+					<strong>Metal and virtual Amazon AWS instances. (Linux/CentOS, scripting: bash, python, perl)</strong><br>
+					Zabbix (and Nagios) monitoring server<br>
+					Kannel SMS platform for receiving, processing and sending messages<br>
+					<strong>HAProxy, Squid, Varnish, Memcache, Redis, MongoDB, Nginx, MariaDB, PHP, Python, Perl</strong>
+				</p>
+			</div>
+		</div>
+
+		<!-- IBM -->
+		<div class="entry">
+			<div class="entry-header"><em>Apr 2010 … Jan 2011</em> - <strong>IBM</strong> ⤵</div>
+			<div class="entry-box">
+				<p>Web development, layout and maintenance for the IBM PartnerWorld platform.</p>
+			</div>
+		</div>
+
+		<!-- Freelance 2009 -->
+		<div class="entry">
+			<div class="entry-header"><em>2009</em> - <strong>Freelance</strong> ⤵</div>
+			<div class="entry-box">
+				<p>Development of JavaScript components for functionality and compatibility improvements.<br>
+					Development of web-based management systems.<br>
+					SEO development for web positioning.<br>
+					Quality and user experience improvements.</p>
+			</div>
+		</div>
+
+		<!-- Process technologies -->
+		<div class="entry">
+			<div class="entry-header"><em>Feb 2008 … Jun 2008</em> - <strong>Process technologies</strong> ⤵</div>
+			<div class="entry-box">
+				<p>ABAP programmer<br>
+					ABAP Programmer and Analyst. SAP system.</p>
+			</div>
+		</div>
+
+		<!-- Freelance 2007 -->
+		<div class="entry">
+			<div class="entry-header"><em>2007</em> - <strong>Freelance</strong> ⤵</div>
+			<div class="entry-box">
+				<p>Freelance programmer. Development of websites and applications.<br>
+					Hosting, Email, DNS administrator. Linux and Windows Servers</p>
+			</div>
+		</div>
+
+		<!-- Indra 2006 -->
+		<div class="entry">
+			<div class="entry-header"><em>2006</em> - <strong>Indra</strong> ⤵</div>
+			<div class="entry-box">
+				<p>ABAP Consultant Programmer<br>
+					As an analyst, I had programmer responsibilities as well as managing interoperability between clients and
+					programmers.<br><br>
+					I’ve also learned by taking internal courses as a <strong>Project Manager</strong> among others, and being
+					responsible for training by managing courses in various areas for employees and clients of the company. This
+					has given me good experience in <strong>Project Leading</strong> and resource management.<br><br>
+					Consultant dedicated to the implementation of different SAP modules, such as SD, FI, CO, MM, BW and
+					Netweaver.<br><br>
+					Projects: Quilmes, Alto Paraná, Editorial Médica Panamericana, Sandoz, Telefónica, OCASA Logística, Mercado
+					Libre, APTAR, Beiersdorf, Syngenta.</p>
+			</div>
+		</div>
+
+		<!-- Indra 2005 -->
+		<div class="entry">
+			<div class="entry-header"><em>2005</em> - <strong>Indra</strong> ⤵</div>
+			<div class="entry-box">
+				<p>SQL Programmer, VB .Net<br><br>
+					Project Manager Assistant and Accountant. Performing various project management and coordination tasks with
+					the team of programmers in Microsoft technologies (Alto Paraná Project).</p>
+			</div>
+		</div>
+
+		<!-- Indra 2004-2005 -->
+		<div class="entry">
+			<div class="entry-header"><em>2004 … 2005</em> - <strong>Indra</strong> ⤵</div>
+			<div class="entry-box">
+				<p>Systems Administrator (Windows Server, Red Hat Linux)<br><br>
+					Technical Support, maintenance of the company computer systems. Mail Exchange Server, IIS 6 Webserver and
+					Apache. File Server Services/Permissions, Hardware and Software, repair and installation. Centralized
+					Firewall, Antivirus and Antispam. SAP Servers and Oracle Databases.</p>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
