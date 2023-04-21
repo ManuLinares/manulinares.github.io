@@ -1,0 +1,212 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');
+*/
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #40424c;
+}
+body {
+  margin: 0;
+  background-color: #40424c;
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 200;;
+  color: white;
+
+  content: "";
+  background: rgba(0, 0, 0, 0) url(background.jpg) no-repeat scroll 0% 0% / cover;
+  background-repeat: no-repeat;
+  background-size: cover;  
+  opacity: 1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+
+  -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 2s; /* Firefox < 16 */
+   -ms-animation: fadein 2s; /* Internet Explorer */
+    -o-animation: fadein 2s; /* Opera < 12.1 */
+       animation: fadein 2s;
+      
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+#canvas {
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity:0.5;
+}
+
+@media (orientation: portrait) {
+  body{
+    font-size: 1.5rem!important;
+  }
+  button[data-am-button^="large"] {
+    width: 120px!important;
+    height: 120px!important;
+    margin: 0 5px!important;
+  }
+  button[data-am-button^="small"] {
+    width: 80px!important;
+    height: 80px!important;
+  }
+}
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  z-index: 100;
+}
+p.track {
+  text-transform: uppercase;
+  color: #FFF;
+}
+p.track span {
+  color: #AAA;
+}
+button {
+  background-color: rgba(255, 255, 255, 0);
+  border: 1px solid #FFF;
+  border-radius: 50%;
+  color: #FFF;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  transition: all 0.2s ease;
+}
+button[data-am-button^="large"] {
+  width: 60px;
+  height: 60px;
+  margin: 0 5px;
+}
+button[data-am-button^="large"] svg {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  margin: auto;
+  height: 40%;
+  fill: #ffffff;
+}
+button[data-am-button^="small"] {
+  width: 40px;
+  height: 40px;
+}
+
+button[data-am-button^="small"] svg {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  margin: auto;
+  height: 40%;
+  fill: #ffffff;
+}
+button:hover {
+  color: #999;
+  border-color: #999;
+}
+button:focus {
+  outline: none;
+}
+
+#progress-bar {
+  width: 100%;
+  background-color: #000;
+  height: 5px;
+  position: relative;
+  margin: 1em 0;
+}
+#progress-bar #progress {
+  background-color: #999;
+  height: 5px;
+  position: absolute;
+  left: 0;
+  transition: width 2.5s linear 0;
+}
+footer {
+  position: fixed;
+  width: 100%;
+  bottom: 15px;
+  text-align: center;
+  color: #AAA;
+  font-size: 12px;
+}
+footer a {
+  color: inherit;
+  text-decoration: none;
+}
+footer a:hover {
+  color: #FFF;
+}
+
+p a {
+  text-decoration: none;
+  color:white;
+  transition: all 0.2s ease;
+}
+p a:hover {
+  opacity: 0.4;
+  
+    color: #999;
+    border-color: #999;
+  
+  
+    outline: none;
+  
+}
+
+p a span, p span {
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  transition: all 0.2s ease;
+  margin: 0 5px;
+}
+
+p a span > svg, p span > svg {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  margin: auto;
+  fill: #ffffff;
+  width: 2em;
+}
