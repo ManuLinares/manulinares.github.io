@@ -1,0 +1,236 @@
+html {
+  height: 100%;
+  overflow: hidden;
+  
+  scroll-snap-type: y proximity;
+}
+
+img[src*="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png"]{display: none !important;}
+
+body { 
+  margin:0;
+  padding:0;
+  perspective: 1px;
+  transform-style: preserve-3d;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  font-family: "Open Sans";
+  background-color:#111;
+  
+  scroll-snap-type: y proximity;
+  scroll-behavior: smooth;
+
+  opacity:0;
+  transition: opacity .5s ease;
+}
+
+.fadeInClass{
+    opacity:1;
+    
+}
+
+h1 {
+   font-size: 250%;
+   margin:0;
+}
+
+p {
+  font-size: 100%;
+  margin:0;
+}
+
+a { color: inherit; } 
+
+#header_name{
+  position:absolute;
+  margin:0;
+  bottom: 10px;
+  right: 2vw;
+    
+  text-align: right;
+  color: #fff;
+  text-shadow: 0 1px 1px #000;
+      
+  width: 290px;
+  padding: 1%;
+  /*border-radius: 2px;
+  background: rgba(240,230,220, .1);*/    
+}
+
+
+.slide {
+  position: relative;
+  /*padding: 25vh 5%;*/
+  min-height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  box-shadow: 0 -1px 10px rgba(0, 0, 0, .7);
+  transform-style: inherit;
+  
+  scroll-snap-align: end;
+}
+
+.slide img {
+  position: absolute;
+  top: 50%;
+  left: 72%;
+  /*width: 320px;*/
+  height: 240px;
+  transform: translateZ(.25px) scale(.75) translateX(-94%) translateY(-100%) rotate(2deg);
+  padding: 2px;
+  border-radius: 5px;
+  background: rgba(240,230,220, .7);
+  box-shadow: 0 0 8px rgba(0, 0, 0, .7);
+}
+
+.slide img:last-of-type {
+  transform: translateZ(.4px) scale(.6) translateX(-104%) translateY(-40%) rotate(-5deg);
+}
+
+.slide:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 0 8px 1px rgba(0, 0, 0, .7);
+}
+
+.slide, .slide:before {
+  background: 50% 50% / cover;  
+}
+
+#footer {
+  background-color:#111;
+  text-align:center;
+  color:#444!important;
+  
+  position: relative;
+  min-height: 5vh;
+  width: 100vw;
+  box-sizing: border-box;
+  transform-style: inherit;
+  
+  scroll-snap-align: end;  
+}
+
+/********************************************/
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.arrow a{
+    position:absolute;
+    z-index:10;
+    left:50vw;
+    bottom:20px;
+    
+    width:55px;
+    
+    display: inline-block;
+    border-radius: 2px;
+    background: rgba(0,0,0,.05);
+    
+    margin:auto;
+    text-align:center;
+    opacity:0.2;
+}
+.arrow a svg#Capa_1{
+    fill:white;
+}
+.arrow a svg#Capa_1:hover{
+    fill: red;
+}
+
+/** Animations **/
+.bounceAnimation {
+	-webkit-animation: bounceAnimation 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s 10 both;
+	        animation: bounceAnimation 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s 10 both;
+}
+
+@keyframes bounceAnimation {
+  50% {
+     bottom: 5px;
+     opacity: 0.7;
+  }
+}
+
+/******************************************************/
+#header{
+  z-index:10;
+  display: flex;
+  flex-flow: row wrap;
+
+  position:absolute;
+  
+  width:100vw;
+  height:120px;
+}
+
+#links{
+  width:100vw;
+
+  position: relative;
+  text-shadow:none;
+
+  font-weight: 300;
+  font-style: normal;
+  font-size: 24px;
+  letter-spacing: .09em;    
+  color:#fff;
+
+  text-transform: uppercase; 
+}
+
+
+#links a{
+  display:inline-flex;
+  z-index:10;
+  position: relative;
+  line-height: 100px;
+  text-decoration:none;
+  
+}
+
+#links .left{
+    position:relative;
+    float:left;
+    left:15px;
+}
+#links .left div{display: inline-flex; }
+
+#links .left div a{
+  padding-left:10px;  padding-right:10px;
+}
+
+#links .right{
+    position: relative;
+    float:right;
+    top: 15px; right: 30px;
+}
+
+#links > .left a:hover {
+    background: rgba(0,0,0,.3);
+    opacity:1;
+    text-shadow: 0 2px 2px #000;
+    text-shadow: 6px -5px 1px #aaa;
+    transition: opacity .5s ease-out, text-shadow .2s, background .5s;
+}
+#links > .right a{
+    opacity:0.5;
+    transform: scale(1);
+}
+#links > .right a:hover{
+    opacity:1;
+    transform: scale(1.5);
+    transition: opacity .5s ease, transform .2s ease;
+}
+
