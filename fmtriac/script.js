@@ -14,6 +14,8 @@ $(function() {
 	var audio = $("audio")[0];
 	var tmpDuration = Infinity;
 
+	audio.volume = 0.4;
+
 	// Any first click interaction on the page, starts to play audio.
 	var userinteraction = 0
 	document.addEventListener('click',()=>{
