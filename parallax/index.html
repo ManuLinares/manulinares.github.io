@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Parallax Manu</title>
+	<style>
+		body {
+			background-color: #222;
+			color: #fff;
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			/*height: 1000px;*/ /* This is just for the parallax effect */
+		}
+		.section {
+			height: 100vh;
+			background-attachment: fixed;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			position: relative;
+		}
+		.section1 {
+			background-image: url('1.webp');
+		}
+		.section2 {
+			background-image: url('2.webp');
+		}
+		.section3 {
+			background-image: url('3.webp');
+		}
+
+		.section1, .section2, .section3 {	animation: parallax1 25s cubic-bezier(0.75, 0.1, 0.25, 1.0) infinite;}
+		
+		.section h1 {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			text-align: center;
+			font-size: 48px;
+			font-weight: bold;
+			text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+		} 
+
+		.section h1 p {
+			font-size: 24px;
+			font-weight: normal;
+			text-align: justify;
+			background-color: rgba(20,0,0,0.4);
+			border-radius: 25px;
+			padding:25px;
+		}
+		
+		@keyframes parallax1 {
+		    from {
+		        background-position: top;
+		    }
+		    50% {
+		        background-position: bottom;
+		    }
+		    to {
+		        background-position: top;
+		    }
+		}
+
+	</style>
+</head>
+<body>
+	<div class="section section1">
+		<h1>Section 1
+			<p>Lorem ipsum dolor sit amet consectetur adipiscing, elit tortor lectus ad viverra enim, id eget curae sociosqu porta. Libero convallis condimentum dapibus quis duis interdum sagittis risus porttitor praesent congue blandit inceptos, integer cubilia erat imperdiet taciti fusce ornare bibendum non venenatis arcu. Nullam integer lacus mauris etiam ut eros facilisis tortor convallis metus luctus, mattis dignissim lobortis nisl semper suscipit ultrices viverra et porta.</p>
+		</h1>
+		
+	</div>
+	<div class="section section2">
+		<h1>Section 2
+<p>Consequat nec cubilia aptent gravida montes venenatis imperdiet sociosqu tincidunt non, blandit curabitur potenti cum commodo ultricies luctus felis ligula tempus, vel pharetra himenaeos aliquet platea suspendisse lobortis aenean placerat. Praesent et ornare neque nunc netus velit taciti lacinia fusce ad suspendisse ultrices class, augue nascetur rhoncus conubia mus inceptos placerat elementum porta fermentum rutrum nulla. Taciti semper bibendum aptent fermentum mollis nullam nostra, cursus aenean id sem ad massa himenaeos phasellus, praesent congue scelerisque sociosqu pulvinar sollicitudin.</p>
+		</h1>
+	</div>
+	<div class="section section3">
+		<h1>Section 3
+<p>Consequat nec cubilia aptent gravida montes venenatis imperdiet sociosqu tincidunt non, blandit curabitur potenti cum commodo ultricies luctus felis ligula tempus, vel pharetra himenaeos aliquet platea suspendisse lobortis aenean placerat. Praesent et ornare neque nunc netus velit taciti lacinia fusce ad suspendisse ultrices class, augue nascetur rhoncus conubia mus inceptos placerat elementum porta fermentum rutrum nulla. Taciti semper bibendum aptent fermentum mollis nullam nostra, cursus aenean id sem ad massa himenaeos phasellus, praesent congue scelerisque sociosqu pulvinar sollicitudin.</p>
+		</h1>
+	</div>
+</body>
+</html>
