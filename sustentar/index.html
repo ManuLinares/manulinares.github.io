@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SUSTENTAR - sustent.ar</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        overflow-x: hidden;
+      }
+      footer {
+        padding: 20px;
+        text-align: left;
+      }
+
+      header,
+      footer {
+        background-color: #007b5e;
+        color: white;
+      }
+
+      header {
+        text-align: center;
+        height: 500px; /* Set a fixed height for the header */
+        background-color: #f5f1ce; /* Set a background color for the header */
+      }
+      @media (max-width: 1000px) {
+        header {
+          height: 100%;
+        }
+      }
+
+      header img {
+        width: 100vw; /* Make the image full width of the header */
+        height: 100%; /* Make the image full height of the header */
+        object-fit: contain; /* Scale the image to cover the header */
+      }
+
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0px 25px 0px 15px;
+      }
+      .logo img {
+        height: 40px;
+        transition: rotate 0.3s ease, transform 0.3s ease;
+      }
+      .logo img:hover {
+        rotate: 360deg;
+        transform: scale(2.5);
+      }
+      
+      /* Navigation styles */
+      nav {
+        background-color: #005b47;
+        padding: 10px;
+        text-align: center;
+      }
+      nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      nav li {
+        position: relative;
+      }
+      nav > ul > li {
+        margin: 0 15px;
+      }
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 8px 12px;
+        display: block;
+      }
+      nav a:hover {
+        text-decoration: underline;
+      }
+      nav ul ul {
+        position: absolute;
+        background-color: #007b5e;
+        visibility: hidden;
+        opacity: 0;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+      }
+      nav ul li:hover > ul {
+        visibility: visible;
+        opacity: 1;
+      }
+      nav ul ul li {
+        width: max-content;
+      }
+
+      /* Main content styles */
+      h1 {
+        color: #e6f2ef;
+      }
+      h2,
+      h3,
+      h4 {
+        color: #007b5e;
+      }
+      h3,
+      h4,
+      h5 {
+        margin-top: 0;
+        margin-bottom: 0.5rem; /* or whatever fits your design */
+      }
+      hr {
+        color: #007b5e33;
+      }
+      ul {
+        padding-left: 20px;
+      }
+
+      main {
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap; /* Allow sections to wrap to next line */
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+
+        z-index: 1;
+        max-width: 1000px;
+        margin: 0 auto;
+        width: 100%;
+      }
+      section {
+        background: white;
+        margin-bottom: 20px;
+        padding: 20px;
+        border-radius: 8px;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        align-items: stretch;
+      }
+
+      .analisis {
+        grid-column: 1;
+      }
+
+      .right-column {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .ejecucion,
+      .investigacion {
+        flex: 1;
+      }
+
+      /* Responsive layout */
+      @media (max-width: 1000px) {
+        .services-grid {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .right-column {
+          flex-direction: column;
+        }
+      }
+
+      #clientes {
+        grid-column: 1 / -1;
+      }
+
+      .dark-green {
+        background: #e6f2ef;
+      }
+      .hover-point {
+        position: relative;
+        cursor: pointer;
+        color: #007b5e;
+      }
+      .detail-popup {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+
+        width: 100vw;
+        max-width: 1000px;
+
+        background-color: rgba(245, 245, 245, 0.9);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+        border-radius: 12px 12px 0 0;
+        overflow-y: auto;
+        padding: 20px;
+        z-index: 999;
+
+        opacity: 0;
+        visibility: hidden;
+        transform: translate(-50%, 100%);
+        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+      }
+
+      .hover-point:hover .detail-popup {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(-50%, 0%);
+      }
+
+      /*****************/
+      .whatsappButton {
+        position: fixed;
+        background-color: #23c25e;
+        box-shadow: 0px 4px 10px 0px rgb(0 0 0 / 15%);
+        width: 71px;
+        height: 71px;
+        display: flex;
+        bottom: 1em;
+        right: 1em;
+        cursor: pointer;
+        border-radius: 50%;
+        user-select: none;
+        line-height: 1;
+        transition: 0.5s;
+        z-index: 9998;
+      }
+      .whatsappButton svg {
+        fill: #ffffff;
+        padding: 0.5rem;
+        width: 71px;
+        height: 71px;
+      }
+      .whatsappButton:hover {
+        background-color: #6a8273;
+      }
+
+      .whatsappButton::after {
+        content: "";
+        width: 71px;
+        height: 71px;
+        border-radius: 50%;
+        position: absolute;
+        box-shadow: 0 0 0 0 rgba(37, 211, 101, 0.9);
+        animation: pulse 1.2s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 101, 0.9);
+        }
+        100% {
+          box-shadow: 0 0 0 20px rgba(37, 211, 101, 0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <!--h1>SUSTENTAR</h1>
+    <p>sustent.ar</p-->
+      <img src="img/back3.webp" alt="Sustentar" />
+    </header>
+
+    <nav>
+      <div class="nav-container">
+        <div class="logo">
+          <img src="img/logo.svg" alt="Sustentar" />
+        </div>
+        <h1>SUSTENTAR</h1>
+        <!--ul>
+        <li>
+          <a href="#services">Servicios</a>
+          <ul>
+            <li><a href="#services">Análisis Técnico del uso Energético</a></li>
+            <li><a href="#services">Ejecución de Obras</a></li>
+            <li><a href="#services">Investigación y Desarrollo</a></li>
+          </ul>
+        </li>
+        <li><a href="#clientes">Clientes</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="#biblioteca">Biblioteca</a></li>
+      </ul-->
+      </div>
+    </nav>
+
+    <main>
+      <h2>Servicios Ofrecidos</h2>
+
+      <div class="services-grid" id="services">
+        <section class="analisis">
+          <h3>Análisis Técnico del uso Energético</h3>
+          <p>
+            Modificaciones y adecuaciones pequeñas a moderadas, con alto impacto
+            positivo: ahorro monetario estratégico y reducción de la huella
+            ecológica.
+          </p>
+          <ul>
+            <li class="hover-point">
+              <h4 style="display: inline">A - Diagnóstico:</h4>
+              <h5 style="display: inline">
+                Informe Técnico sobre uso energético.
+              </h5>
+              <div class="detail-popup">
+                <h4>A - Diagnóstico: Informe Técnico de Uso Energético</h4>
+                <p>
+                  A través de planillas y formularios de relevamiento a
+                  distancia o in situ, de la situación existente de la vivienda,
+                  local o industria, se realiza una evaluación técnica del uso
+                  energético actual. Se incluyen conclusiones y recomendaciones
+                  para mejoras.
+                </p>
+                <ul>
+                  <li>
+                    Balance térmico - Uso energético para acondicionamiento
+                    térmico.
+                  </li>
+                  <li>Uso energético para iluminación.</li>
+                  <li>
+                    Utilización de motores de baja potencia - industriales
+                    dependiendo del caso.
+                  </li>
+                  <li>
+                    Uso de electrodomésticos habituales - Costumbres de uso
+                    habitacional.
+                  </li>
+                  <li>Recomendaciones y posibles mejoras.</li>
+                </ul>
+              </div>
+            </li>
+            <li class="hover-point">
+              <h4 style="display: inline">B - Evaluación:</h4>
+              <h5 style="display: inline">
+                Presupuesto de adecuaciones menores con análisis económico.
+              </h5>
+              <div class="detail-popup">
+                <h4>
+                  B - Evaluación: Presupuesto de adecuaciones menores de Impacto
+                  Positivo. $ AHORRO $ Análisis personalizado de conveniencia
+                  económica.
+                </h4>
+                <p>
+                  Luego del Diagnóstico, se analizan distintas opciones de
+                  mejora poniendo énfasis en el ahorro monetario y en el cuidado
+                  del planeta. Con proyecciones de 1 año a 5 años.
+                </p>
+                <ul>
+                  <li>
+                    Computo y presupuesto de la implementación de adecuaciones
+                    para mejoras en el uso energético en el ámbito de aplicación
+                    en la Republica Argentina y otros países.
+                  </li>
+                  <li>
+                    Cómputo y presupuesto de micro obras para modificaciones.
+                  </li>
+                  <li>
+                    Mejoras en el equipamiento electromecánico de la vivienda.
+                  </li>
+                  <li>
+                    Plan de Trabajos - Curva de inversiones - Tasa interna de
+                    retorno del proyecto - Sostenibilidad
+                  </li>
+                  <li>
+                    Análisis cualitativo del Impacto Positivo - huella ecológica
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="hover-point">
+              <h4 style="display: inline">
+                C - Evaluación + Energías Renovables:
+              </h4>
+              <h5 style="display: inline">
+                Opciones de mejora con renovables, proyecciones de 1, 5 y 10
+                años.
+              </h5>
+              <div class="detail-popup">
+                <h4>
+                  C - Evaluación + uso de Energías Renovables: Presupuesto de
+                  adecuaciones menores y medianas de Impacto Positivo,
+                  incluyendo uso de energías renovables. $ AHORRO $ Análisis
+                  personalizado de conveniencia económica.
+                </h4>
+                <p>
+                  Luego del Diagnóstico, se analizan distintas opciones de
+                  mejora poniendo énfasis en el ahorro monetario y en el cuidado
+                  del planeta, que incluyen la utilización de uno o más sistemas
+                  de energía renovable y sostenibles. Con proyecciones de 1 año
+                  - 5 años y 10 años.
+                </p>
+                <ul>
+                  <li>
+                    Cómputo y presupuesto de la implementación de adecuaciones
+                    para mejoras en el uso energético en el ámbito de aplicación
+                    en la República Argentina y otros países.
+                  </li>
+                  <li>
+                    Cómputo y presupuesto de micro obras para modificaciones.
+                  </li>
+                  <li>
+                    Mejoras en el equipamiento electromecánico de la vivienda.
+                  </li>
+                  <li>
+                    Evaluación, computo y presupuesto de uso de energías
+                    alternativas renovables con impacto energético muy positivo.
+                  </li>
+                  <li>
+                    Análisis pormenorizado del proyecto y su factibilidad.
+                  </li>
+                  <li>
+                    Plan de Trabajos - Curva de inversiones - Tasa interna de
+                    retorno del proyecto - Sostenibilidad.
+                  </li>
+                  <li>
+                    Análisis cualitativo del Impacto Positivo - huella
+                    ecológica.
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="hover-point">
+              <h4 style="display: inline">D - Proyectos:</h4>
+              <h5 style="display: inline">
+                Relevamiento, planos, memoria de cálculo, presupuesto detallado.
+              </h5>
+              <div class="detail-popup">
+                <h4>
+                  D - Proyectos de obras pequeñas y medianas para la
+                  Implementación de las obras evaluadas.
+                </h4>
+                <p>
+                  A partir de lo determinado en punto B o punto C. Se debe
+                  realizar un relevamiento a distancia y/o in situ para realizar
+                  el anteproyecto y luego proyecto de detalle para detallar las
+                  tareas de obra.
+                </p>
+                <ul>
+                  <li>
+                    Planos de arquitectura y de instalaciones, plantas y cortes.
+                  </li>
+                  <li>
+                    Diseño y memoria de cálculo de las modificaciones si es
+                    necesario.
+                  </li>
+                  <li>
+                    Computo y presupuesto de detalle de las tareas para la
+                    implementación de las modificaciones.
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="hover-point">
+              <h4 style="display: inline">E - Asesoramiento y Diseño:</h4>
+              <h5 style="display: inline">
+                Proyectos de viviendas sostenibles, planos e instalaciones.
+              </h5>
+              <div class="detail-popup">
+                <h4>
+                  E - Asesoramiento - Diseño y Proyectos de viviendas
+                  unifamiliares y multifamiliares respetuosas con el Medio
+                  Ambiente - Eficacia de los Espacios y Eficiencia Energética.
+                </h4>
+                <ul>
+                  <li>
+                    Asesoramiento técnico para el diseño de viviendas
+                    sostenibles.
+                  </li>
+                  <li>
+                    Realización de anteproyectos y proyectos para viviendas uni
+                    y/o multifamiliares de viviendas sostenibles.
+                  </li>
+                  <li>
+                    Planos de arquitectura, de estructuras y de instalaciones.
+                    Planos de demoliciones. Detalles constructivos.
+                  </li>
+                  <li>
+                    Planos municipales y seguimiento hasta su aprobación final.
+                  </li>
+                  <li>
+                    Diseño estructural y memorias de cálculo. Planos de
+                    estructuras y planillas de doblado de armaduras.
+                  </li>
+                  <li>
+                    Diseño de instalaciones sanitarias, eléctricas,
+                    electromecánicas, de gas y contra-incendios.
+                  </li>
+                  <li>
+                    Aprobación y seguimiento de aprobación de planos de
+                    instalaciones.
+                  </li>
+                  <li>
+                    Cómputo y presupuesto de detalle para las obras. Plan de
+                    trabajos y curva de Inversiones
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+
+          <p>Base del analisis:</p>
+          <ul>
+            <li class="hover-point">
+              <h4 style="display: inline">Optimización de la Climatización</h4>
+              <div class="detail-popup">
+                Uso racional del espacio, orientación, balance térmico,
+                arquitectura e ingeniería sostenible. Sobre paramentos /
+                paredes, carpinterías / ventanas, puertas y vidrios, cubiertas /
+                techos y sobre solados. Recomendaciones para el correcto uso y
+                funcionamiento de artefactos de acondicionamiento térmico. Uso
+                de alternativas ecológicas Aerotermia, entre otros. Uso de flora
+                estratégica.
+              </div>
+            </li>
+            <li class="hover-point">
+              <h4 style="display: inline">Optimización de la Iluminación</h4>
+              <div class="detail-popup">
+                Uso racional del espacio y estrategias, arquitectura e
+                ingeniería sostenible. En espacios interiores, zonas de trabajo
+                y de descanso. En espacios exteriores, circulación peatonal y
+                vehicular. Uso de equipos, artefactos y tecnologías sostenibles.
+              </div>
+            </li>
+            <li class="hover-point">
+              <h4 style="display: inline">Optimización del uso responsable de equipamiento
+                electromecánico y artefactos</h4>
+              <div class="detail-popup">
+                Sobre el uso de bombas para agua sanitaria. Sobre el uso de
+                equipos de Aire Acondicionado y ventilación. Sobre el uso de
+                estufas, calefactores y artefactos para calefacción. Sobre el
+                uso de electrodomésticos habituales de una vivienda. Sobre el
+                uso de equipamiento electromecánico industrial.
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <div class="right-column">
+          <section class="ejecucion">
+            <h3>Ejecución de Obras</h3>
+            <p>Obras Pequeñas y medianas.</p>
+            <ul>
+              <li class="hover-point">
+                <h4 style="display: inline">F - Dirección de Obras:</h4>
+                <h5 style="display: inline">
+                  Seguimiento técnico, control de calidad, ajustes en obra.
+                </h5>
+                <div class="detail-popup">
+                  <h4>
+                    F - Seguimiento y Dirección de obras - Especialista en
+                    Sostenibilidad de obras.
+                  </h4>
+                  <p>
+                    Luego de un análisis pormenorizado del proyecto ejecutivo de
+                    las obras. Se realiza asesoramiento técnico, seguimiento de
+                    la obra, aseguramiento y control de la calidad de los
+                    trabajos realizados por el contratista. Se resuelven los
+                    problemas y diferencias encontradas entre el proyecto y lo
+                    ejecutado. Se ajustan los pedidos del cliente, comitente y
+                    dueño de la obra, y se ejecutan según las reglas del buen
+                    arte. Todos los ajustes se realizan pensando en su impacto
+                    ambiental, su eficiencia energética y su costo vs
+                    beneficios.
+                  </p>
+                  <p>
+                    Trabajos a demanda, diarios, semanales, mensuales y por
+                    proyecto.
+                  </p>
+                </div>
+              </li>
+              <li class="hover-point">
+                <h4 style="display: inline">G - Ejecución:</h4>
+                <h5 style="display: inline">
+                  Implementación de soluciones con recursos y técnicas
+                  sostenibles.
+                </h5>
+                <div class="detail-popup">
+                  <h4>
+                    G - Ejecución de las obras - Implementación de las
+                    soluciones adoptadas para mejorar el desempeño energético. $
+                    AHORRO $.
+                  </h4>
+                  <p>
+                    A partir del proyecto realizado en Punto D, o similar, se
+                    ejecutarán las obras. Se proveerán los equipos necesarios,
+                    materiales y mano de obra especializada para cada tarea.
+                    Liderando ese grupo de trabajos, un profesional de la
+                    construcción, y el equipo profesional de la empresa,
+                    organizarán las tareas y el uso de los recursos para lograr
+                    los objetivos en tiempo, forma y dentro de su presupuesto
+                    acotado. Se atenderán detalles de obra y se realizarán los
+                    pedidos de los materiales necesarios para un armonioso
+                    avance de la obra. El profesional atenderá cualquier
+                    consulta del cliente o de la dirección provista y brindará
+                    soluciones. Se tendrá especial cuidado con el medio
+                    ambiente, los residuos generados por la obra y se tendrá
+                    siempre en mente la utilización de las técnicas
+                    constructivas con menor impacto ambiental, mitigando las
+                    acciones negativas y su posible compensación.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </section>
+
+          <section class="investigacion">
+            <h3>Investigación y Desarrollo</h3>
+            <p>- Vivienda e industria ecológica.</p>
+            <p>- Actualización y/o Desarrollo de nuevas Técnicas, Tecnologías
+               constructivas con Impacto positivo.</p>
+              <p>- Sostenibilidad.</p>
+            </p>
+            <ul>
+              <li class="hover-point">
+                <h4 style="display: inline">H - Experimentación:</h4>
+                <h5 style="display: inline">
+                  Diseño e implementación de prototipos con impacto positivo
+                </h5>
+
+                <div class="detail-popup">
+                  <h4>H - Análisis, experimentación y ensayos.</h4>
+                  <p>
+                    Estudios de investigación, Diseño, Ingeniería de nuevos
+                    productos y sistemas con Impacto Positivo en la
+                    sostenibilidad de la industria de la Construcción.
+                  </p>
+                  <ul>
+                    <li>Ejecución de prototipos y modelos.</li>
+                    <li>Proyecto Vivienda mothership.</li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </section>
+        </div>
+
+        <section id="clientes" class="dark-green">
+          <h2>Clientes / Dirigido a</h2>
+          <ul>
+            <li>
+              <strong>Personas</strong> con viviendas existentes que buscan mejorar confort y
+              reducir consumos.
+            </li>
+            <li><strong>Empresas</strong> interesadas en construir viviendas sustentables.</li>
+          </ul>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 SUSTENTAR</p>
+    </footer>
+
+    <a
+      class="whatsappButton"
+      href="https://wa.me/5491128924985"
+      target="_blank"
+    >
+      <svg focusable="false" viewBox="0 0 24 24">
+        <path
+          d="M16.75 13.96c.25.13.41.2.46.3.06.11.04.61-.21 1.18-.2.56-1.24 1.1-1.7 1.12-.46.02-.47.36-2.96-.73-2.49-1.09-3.99-3.75-4.11-3.92-.12-.17-.96-1.38-.92-2.61.05-1.22.69-1.8.95-2.04.24-.26.51-.29.68-.26h.47c.15 0 .36-.06.55.45l.69 1.87c.06.13.1.28.01.44l-.27.41-.39.42c-.12.12-.26.25-.12.5.12.26.62 1.09 1.32 1.78.91.88 1.71 1.17 1.95 1.3.24.14.39.12.54-.04l.81-.94c.19-.25.35-.19.58-.11l1.67.88M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10c-1.97 0-3.8-.57-5.35-1.55L2 22l1.55-4.65A9.969 9.969 0 0 1 2 12 10 10 0 0 1 12 2m0 2a8 8 0 0 0-8 8c0 1.72.54 3.31 1.46 4.61L4.5 19.5l2.89-.96A7.95 7.95 0 0 0 12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8z"
+        ></path>
+      </svg>
+    </a>
+  </body>
+</html>
