@@ -1,0 +1,481 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C3 Backtrace Comparison</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text: #f8fafc;
+            --text-dim: #94a3b8;
+            --primary: #38bdf8;
+            --secondary: #fbbf24;
+            --system-bg: #1e1b4b;
+            --build-bg: #064e3b;
+            --border: #334155;
+        }
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 2rem;
+            line-height: 1.5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .test-card {
+            background: var(--card-bg);
+            border-radius: 1rem;
+            border: 1px solid var(--border);
+            margin-bottom: 2rem;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .test-header {
+            padding: 1rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .test-id {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            padding: 1.5rem;
+        }
+        .side {
+            display: flex;
+            flex-direction: column;
+        }
+        .side-title {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-dim);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .side-title::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+        .system .side-title::before { background-color: #ef4444; }
+        .build .side-title::before { background-color: #10b981; }
+        
+        pre {
+            background: #000;
+            padding: 1.25rem;
+            border-radius: 0.5rem;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+            margin: 0;
+            border: 1px solid var(--border);
+            flex-grow: 1;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+        .system pre { border-color: #7f1d1d; }
+        .build pre { border-color: #064e3b; }
+
+        @media (max-width: 900px) {
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>C3 Backtrace Comparison</h1>
+            <p style="color: var(--text-dim)">Comparing backtrace formatting between System C3C and the Build version.</p>
+        </header>
+        <main>
+    
+            <section class="test-card">
+                <div class="test-header">
+                    <span class="test-id">Test Case 1</span>
+                </div>
+                <div class="comparison">
+                    <div class="side system">
+                        <div class="side-title">System c3c</div>
+                        <pre>Starting crash test with type: 1
+Triggering null pointer dereference...
+
+ERROR: 'Dereference of null pointer, 'ptr' was null.'
+  in std.core.builtin.print_backtrace (/usr/lib/c3c/lib/std/core/builtin.c3:179) [/home/mb/scripts/c3c/crash_test] [inline]
+  in std.core.builtin.default_panic (/usr/lib/c3c/lib/std/core/builtin.c3:217) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.crash_here (/home/mb/scripts/c3c/crash_test.c3:19) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.nested_call_2 (/home/mb/scripts/c3c/crash_test.c3:44) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.nested_call_1 (/home/mb/scripts/c3c/crash_test.c3:48) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.main (/home/mb/scripts/c3c/crash_test.c3:94) [/home/mb/scripts/c3c/crash_test] [inline]
+  in @main_args (/usr/lib/c3c/lib/std/core/private/main_stub.c3:25) [/home/mb/scripts/c3c/crash_test]
+  in main (/home/mb/scripts/c3c/crash_test.c3:62) [/home/mb/scripts/c3c/crash_test] [inline]
+  in __libc_init_first (source unavailable) [/usr/lib/libc.so.6] [inline]
+  in __libc_start_main (source unavailable) [/usr/lib/libc.so.6] [inline]
+  in _start (source unavailable) [/home/mb/scripts/c3c/crash_test] [inline]</pre>
+                    </div>
+                    <div class="side build">
+                        <div class="side-title">Build c3c (New Pretty Printing)</div>
+                        <pre>Starting crash test with type: 1
+Triggering null pointer dereference...
+
+ERROR: 'Dereference of null pointer, 'ptr' was null.'
+  in crash_test.crash_here (/home/mb/scripts/c3c/crash_test.c3:19) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.nested_call_2 (/home/mb/scripts/c3c/crash_test.c3:44) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.nested_call_1 (/home/mb/scripts/c3c/crash_test.c3:48) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.main (/home/mb/scripts/c3c/crash_test.c3:94) [/home/mb/scripts/c3c/crash_test] [inline]</pre>
+                    </div>
+                </div>
+            </section>
+        
+            <section class="test-card">
+                <div class="test-header">
+                    <span class="test-id">Test Case 2</span>
+                </div>
+                <div class="comparison">
+                    <div class="side system">
+                        <div class="side-title">System c3c</div>
+                        <pre>Starting crash test with type: 2
+Triggering array out of bounds...
+
+ERROR: 'Array index out of bounds (array had size 1, index was 5)'
+  in std.core.builtin.print_backtrace (/usr/lib/c3c/lib/std/core/builtin.c3:179) [/home/mb/scripts/c3c/crash_test] [inline]
+  in std.core.builtin.default_panic (/usr/lib/c3c/lib/std/core/builtin.c3:217) [/home/mb/scripts/c3c/crash_test] [inline]
+  in std.core.builtin.panicf (/usr/lib/c3c/lib/std/core/builtin.c3:273) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.crash_here (/home/mb/scripts/c3c/crash_test.c3:25) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.nested_call_2 (/home/mb/scripts/c3c/crash_test.c3:44) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.nested_call_1 (/home/mb/scripts/c3c/crash_test.c3:48) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.main (/home/mb/scripts/c3c/crash_test.c3:94) [/home/mb/scripts/c3c/crash_test] [inline]
+  in @main_args (/usr/lib/c3c/lib/std/core/private/main_stub.c3:25) [/home/mb/scripts/c3c/crash_test]
+  in main (/home/mb/scripts/c3c/crash_test.c3:62) [/home/mb/scripts/c3c/crash_test] [inline]
+  in __libc_init_first (source unavailable) [/usr/lib/libc.so.6] [inline]
+  in __libc_start_main (source unavailable) [/usr/lib/libc.so.6] [inline]
+  in _start (source unavailable) [/home/mb/scripts/c3c/crash_test] [inline]</pre>
+                    </div>
+                    <div class="side build">
+                        <div class="side-title">Build c3c (New Pretty Printing)</div>
+                        <pre>Starting crash test with type: 2
+Triggering array out of bounds...
+
+ERROR: 'Array index out of bounds (array had size 1, index was 5)'
+  in crash_test.crash_here (/home/mb/scripts/c3c/crash_test.c3:25) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.nested_call_2 (/home/mb/scripts/c3c/crash_test.c3:44) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.nested_call_1 (/home/mb/scripts/c3c/crash_test.c3:48) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.main (/home/mb/scripts/c3c/crash_test.c3:94) [/home/mb/scripts/c3c/crash_test] [inline]</pre>
+                    </div>
+                </div>
+            </section>
+        
+            <section class="test-card">
+                <div class="test-header">
+                    <span class="test-id">Test Case 3</span>
+                </div>
+                <div class="comparison">
+                    <div class="side system">
+                        <div class="side-title">System c3c</div>
+                        <pre>Starting crash test with type: 3
+Triggering unreachable...
+
+ERROR: 'Intentional crash!'
+  in std.core.builtin.print_backtrace (/usr/lib/c3c/lib/std/core/builtin.c3:179) [/home/mb/scripts/c3c/crash_test] [inline]
+  in std.core.builtin.default_panic (/usr/lib/c3c/lib/std/core/builtin.c3:217) [/home/mb/scripts/c3c/crash_test] [inline]
+  in std.core.builtin.panicf (/usr/lib/c3c/lib/std/core/builtin.c3:273) [/home/mb/scripts/c3c/crash_test] [inline]
+  in unreachable (/usr/lib/c3c/lib/std/core/builtin.c3:286) [/home/mb/scripts/c3c/crash_test]
+  in crash_test.crash_here (/home/mb/scripts/c3c/crash_test.c3:28) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.nested_call_2 (/home/mb/scripts/c3c/crash_test.c3:44) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.nested_call_1 (/home/mb/scripts/c3c/crash_test.c3:48) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.main (/home/mb/scripts/c3c/crash_test.c3:94) [/home/mb/scripts/c3c/crash_test] [inline]
+  in @main_args (/usr/lib/c3c/lib/std/core/private/main_stub.c3:25) [/home/mb/scripts/c3c/crash_test]
+  in main (/home/mb/scripts/c3c/crash_test.c3:62) [/home/mb/scripts/c3c/crash_test] [inline]
+  in __libc_init_first (source unavailable) [/usr/lib/libc.so.6] [inline]
+  in __libc_start_main (source unavailable) [/usr/lib/libc.so.6] [inline]
+  in _start (source unavailable) [/home/mb/scripts/c3c/crash_test] [inline]</pre>
+                    </div>
+                    <div class="side build">
+                        <div class="side-title">Build c3c (New Pretty Printing)</div>
+                        <pre>Starting crash test with type: 3
+Triggering unreachable...
+
+ERROR: 'Intentional crash!'
+  in unreachable (/home/mb/scripts/c3c/lib/std/core/builtin.c3:329) [/home/mb/scripts/c3c/crash_test]
+  in crash_test.crash_here (/home/mb/scripts/c3c/crash_test.c3:28) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.nested_call_2 (/home/mb/scripts/c3c/crash_test.c3:44) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.nested_call_1 (/home/mb/scripts/c3c/crash_test.c3:48) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.main (/home/mb/scripts/c3c/crash_test.c3:94) [/home/mb/scripts/c3c/crash_test] [inline]</pre>
+                    </div>
+                </div>
+            </section>
+        
+            <section class="test-card">
+                <div class="test-header">
+                    <span class="test-id">Test Case 4</span>
+                </div>
+                <div class="comparison">
+                    <div class="side system">
+                        <div class="side-title">System c3c</div>
+                        <pre>Starting crash test with type: 4
+Triggering assertion failure...
+
+ERROR: 'This assertion is false!'
+  in std.core.builtin.print_backtrace (/usr/lib/c3c/lib/std/core/builtin.c3:179) [/home/mb/scripts/c3c/crash_test] [inline]
+  in std.core.builtin.default_panic (/usr/lib/c3c/lib/std/core/builtin.c3:217) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.crash_here (/home/mb/scripts/c3c/crash_test.c3:32) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.nested_call_2 (/home/mb/scripts/c3c/crash_test.c3:44) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.nested_call_1 (/home/mb/scripts/c3c/crash_test.c3:48) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.main (/home/mb/scripts/c3c/crash_test.c3:94) [/home/mb/scripts/c3c/crash_test] [inline]
+  in @main_args (/usr/lib/c3c/lib/std/core/private/main_stub.c3:25) [/home/mb/scripts/c3c/crash_test]
+  in main (/home/mb/scripts/c3c/crash_test.c3:62) [/home/mb/scripts/c3c/crash_test] [inline]
+  in __libc_init_first (source unavailable) [/usr/lib/libc.so.6] [inline]
+  in __libc_start_main (source unavailable) [/usr/lib/libc.so.6] [inline]
+  in _start (source unavailable) [/home/mb/scripts/c3c/crash_test] [inline]</pre>
+                    </div>
+                    <div class="side build">
+                        <div class="side-title">Build c3c (New Pretty Printing)</div>
+                        <pre>Starting crash test with type: 4
+Triggering assertion failure...
+
+ERROR: 'This assertion is false!'
+  in crash_test.crash_here (/home/mb/scripts/c3c/crash_test.c3:32) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.nested_call_2 (/home/mb/scripts/c3c/crash_test.c3:44) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.nested_call_1 (/home/mb/scripts/c3c/crash_test.c3:48) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.main (/home/mb/scripts/c3c/crash_test.c3:94) [/home/mb/scripts/c3c/crash_test] [inline]</pre>
+                    </div>
+                </div>
+            </section>
+        
+            <section class="test-card">
+                <div class="test-header">
+                    <span class="test-id">Test Case 5</span>
+                </div>
+                <div class="comparison">
+                    <div class="side system">
+                        <div class="side-title">System c3c</div>
+                        <pre>Starting crash test with type: 5
+Triggering deep recursive crash (depth 100)...
+Triggering recursive crash (stack overflow or intentional at depth)...
+
+ERROR: 'Dereference of null pointer, 'ptr' was null.'
+  in std.core.builtin.print_backtrace (/usr/lib/c3c/lib/std/core/builtin.c3:179) [/home/mb/scripts/c3c/crash_test] [inline]
+  in std.core.builtin.default_panic (/usr/lib/c3c/lib/std/core/builtin.c3:217) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:11) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.crash_here (/home/mb/scripts/c3c/crash_test.c3:35) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.nested_call_2 (/home/mb/scripts/c3c/crash_test.c3:44) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.nested_call_1 (/home/mb/scripts/c3c/crash_test.c3:48) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.main (/home/mb/scripts/c3c/crash_test.c3:94) [/home/mb/scripts/c3c/crash_test] [inline]
+  in @main_args (/usr/lib/c3c/lib/std/core/private/main_stub.c3:25) [/home/mb/scripts/c3c/crash_test]
+  in main (/home/mb/scripts/c3c/crash_test.c3:62) [/home/mb/scripts/c3c/crash_test] [inline]
+  in __libc_init_first (source unavailable) [/usr/lib/libc.so.6] [inline]
+  in __libc_start_main (source unavailable) [/usr/lib/libc.so.6] [inline]
+  in _start (source unavailable) [/home/mb/scripts/c3c/crash_test] [inline]</pre>
+                    </div>
+                    <div class="side build">
+                        <div class="side-title">Build c3c (New Pretty Printing)</div>
+                        <pre>Starting crash test with type: 5
+Triggering deep recursive crash (depth 100)...
+Triggering recursive crash (stack overflow or intentional at depth)...
+
+ERROR: 'Dereference of null pointer, 'ptr' was null.'
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:11) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  ... (98 repetitions of crash_test.recursive_crash)
+  in crash_test.recursive_crash (/home/mb/scripts/c3c/crash_test.c3:7) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.crash_here (/home/mb/scripts/c3c/crash_test.c3:35) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.nested_call_2 (/home/mb/scripts/c3c/crash_test.c3:44) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.nested_call_1 (/home/mb/scripts/c3c/crash_test.c3:48) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.main (/home/mb/scripts/c3c/crash_test.c3:94) [/home/mb/scripts/c3c/crash_test] [inline]</pre>
+                    </div>
+                </div>
+            </section>
+        
+            <section class="test-card">
+                <div class="test-header">
+                    <span class="test-id">Test Case 6</span>
+                </div>
+                <div class="comparison">
+                    <div class="side system">
+                        <div class="side-title">System c3c</div>
+                        <pre>Triggering deep non-recursive crash (10 levels)...
+Triggering null pointer dereference...
+
+ERROR: 'Dereference of null pointer, 'ptr' was null.'
+  in std.core.builtin.print_backtrace (/usr/lib/c3c/lib/std/core/builtin.c3:179) [/home/mb/scripts/c3c/crash_test] [inline]
+  in std.core.builtin.default_panic (/usr/lib/c3c/lib/std/core/builtin.c3:217) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.crash_here (/home/mb/scripts/c3c/crash_test.c3:19) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.level_10 (/home/mb/scripts/c3c/crash_test.c3:51) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.level_9 (/home/mb/scripts/c3c/crash_test.c3:52) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.level_8 (/home/mb/scripts/c3c/crash_test.c3:53) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.level_7 (/home/mb/scripts/c3c/crash_test.c3:54) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.level_6 (/home/mb/scripts/c3c/crash_test.c3:55) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.level_5 (/home/mb/scripts/c3c/crash_test.c3:56) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.level_4 (/home/mb/scripts/c3c/crash_test.c3:57) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.level_3 (/home/mb/scripts/c3c/crash_test.c3:58) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.level_2 (/home/mb/scripts/c3c/crash_test.c3:59) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.level_1 (/home/mb/scripts/c3c/crash_test.c3:60) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.main (/home/mb/scripts/c3c/crash_test.c3:70) [/home/mb/scripts/c3c/crash_test] [inline]
+  in @main_args (/usr/lib/c3c/lib/std/core/private/main_stub.c3:25) [/home/mb/scripts/c3c/crash_test]
+  in main (/home/mb/scripts/c3c/crash_test.c3:62) [/home/mb/scripts/c3c/crash_test] [inline]
+  in __libc_init_first (source unavailable) [/usr/lib/libc.so.6] [inline]
+  in __libc_start_main (source unavailable) [/usr/lib/libc.so.6] [inline]
+  in _start (source unavailable) [/home/mb/scripts/c3c/crash_test] [inline]</pre>
+                    </div>
+                    <div class="side build">
+                        <div class="side-title">Build c3c (New Pretty Printing)</div>
+                        <pre>Triggering deep non-recursive crash (10 levels)...
+Triggering null pointer dereference...
+
+ERROR: 'Dereference of null pointer, 'ptr' was null.'
+  in crash_test.crash_here (/home/mb/scripts/c3c/crash_test.c3:19) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.level_10 (/home/mb/scripts/c3c/crash_test.c3:51) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.level_9 (/home/mb/scripts/c3c/crash_test.c3:52) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.level_8 (/home/mb/scripts/c3c/crash_test.c3:53) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.level_7 (/home/mb/scripts/c3c/crash_test.c3:54) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.level_6 (/home/mb/scripts/c3c/crash_test.c3:55) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.level_5 (/home/mb/scripts/c3c/crash_test.c3:56) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.level_4 (/home/mb/scripts/c3c/crash_test.c3:57) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.level_3 (/home/mb/scripts/c3c/crash_test.c3:58) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.level_2 (/home/mb/scripts/c3c/crash_test.c3:59) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.level_1 (/home/mb/scripts/c3c/crash_test.c3:60) [/home/mb/scripts/c3c/crash_test] [inline]
+  in crash_test.main (/home/mb/scripts/c3c/crash_test.c3:70) [/home/mb/scripts/c3c/crash_test] [inline]</pre>
+                    </div>
+                </div>
+            </section>
+        
+        </main>
+    </div>
+</body>
+</html>
+    
