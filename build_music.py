@@ -26,10 +26,19 @@ def get_duration(path: Path) -> str:
     except (ValueError, TypeError):
         return "--:--"
 
+MEDIA_EXTENSIONS = {
+    ".mp3", ".mp4", ".m4v", ".mkv", ".opus", ".webm",
+    ".flac", ".wav", ".aac", ".ogg", ".m4a", ".wma",
+}
+
 def parse_track_name(filename: str):
     base = filename
-    while "." in base:
-        base, _ = os.path.splitext(base)
+    while True:
+        root, ext = os.path.splitext(base)
+        if ext.lower() in MEDIA_EXTENSIONS:
+            base = root
+        else:
+            break
 
     canonical = re.sub(r"\s*\(\d+\)$", "", base).strip()
     if " - " not in canonical:
@@ -49,12 +58,13 @@ if PLAYLIST_FILE.exists():
     except Exception:
         pass
 
-# 1. Discover tracks adhering to contract (0 ffprobe calls)
+# 1. Discover tracks adhering to contract
 songs = {}
 for p in SOURCE_DIR.rglob("*"):
-    if p.is_file() and not p.name.startswith("."):
+    if p.is_file() and not p.name.startswith(".") and p.suffix.lower() in MEDIA_EXTENSIONS:
         canon_key, artist, title = parse_track_name(p.name)
         if not canon_key:
+            print(f"Skipped '{p.name}': missing ' - ' (expected 'Artist - Title')", file=sys.stderr)
             continue
         mtime = p.stat().st_mtime
         if canon_key not in songs or mtime > songs[canon_key][0]:
