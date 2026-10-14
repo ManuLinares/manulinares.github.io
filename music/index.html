@@ -21,7 +21,7 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background: var(--bg);
+      background: radial-gradient(ellipse at bottom, rgba(245, 70, 66, 0.12) 0%, #121212 70%), url('../flcl.webp') center / cover no-repeat fixed #121212;
       color: var(--text);
       font-family: system-ui, -apple-system, sans-serif;
       min-height: 100vh;
@@ -51,18 +51,28 @@
     header h1 { font-size: 1.5rem; }
 
     .search-box {
+      position: sticky;
+      top: 0;
       width: 100%;
       max-width: 900px;
-      margin: 20px auto 16px;
-      padding: 0 20px;
+      margin: 0 auto;
+      padding: 16px 20px;
       display: flex;
       justify-content: center;
+      background: rgba(18, 18, 18, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 10;
     }
 
-    .search-box input {
+    .search-wrap {
+      position: relative;
       width: 100%;
       max-width: 500px;
-      padding: 10px 16px;
+    }
+
+    .search-wrap input {
+      width: 100%;
+      padding: 10px 36px 10px 16px;
       background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: 20px;
@@ -71,7 +81,28 @@
       outline: none;
     }
 
-    .search-box input:focus { border-color: var(--text-dim); }
+    .search-wrap input:focus { border-color: var(--text-dim); }
+
+    #searchClear {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--text-dim);
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+    }
+
+    .search-wrap input:not(:placeholder-shown) + #searchClear {
+      display: flex;
+    }
+
+    #searchClear:hover { color: var(--text); }
 
     .tracklist {
       list-style: none;
@@ -90,9 +121,12 @@
       border-radius: 6px;
       cursor: pointer;
       user-select: none;
+      scroll-margin-top: 70px;
+      scroll-margin-bottom: 96px;
     }
 
-    .track-row:hover { background: var(--card-hover); }
+    .track-row:hover, .track-row.selected { background: var(--card-hover); }
+    .track-row.selected { outline: 1px solid #555; }
     .track-row.active { background: #2a2a2a; color: var(--accent); }
     .track-row.active .track-artist { color: var(--accent); opacity: 0.8; }
 
@@ -171,7 +205,9 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      cursor: pointer;
     }
+    .player-current .title:hover { text-decoration: underline; }
 
     .player-current .artist {
       font-size: 0.75rem;
@@ -179,7 +215,9 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      cursor: pointer;
     }
+    .player-current .artist:hover { text-decoration: underline; color: var(--text); }
 
     .player-controls {
       display: flex;
@@ -217,11 +255,20 @@
     .btn-play:hover { transform: scale(1.05); }
 
     .timeline {
+      position: relative;
       display: flex;
       align-items: center;
       gap: 8px;
       width: 100%;
       max-width: 500px;
+      height: 16px;
+    }
+
+    .timeline::before,
+    .volume-box::before {
+      content: '';
+      position: absolute;
+      inset: -12px 0;
     }
 
     .timeline span {
@@ -229,34 +276,61 @@
       color: var(--text-dim);
       width: 36px;
       font-variant-numeric: tabular-nums;
+      position: relative;
+      z-index: 1;
     }
 
     .timeline span.right { text-align: right; }
 
     .slider {
+      position: relative;
+      z-index: 1;
       flex: 1;
-      height: 4px;
-      border-radius: 2px;
-      background: #4d4d4d;
+      height: 16px;
+      background: transparent;
       outline: none;
       appearance: none;
       cursor: pointer;
+    }
+
+    .slider::-webkit-slider-runnable-track {
+      height: 4px;
+      border-radius: 2px;
+      background: #4d4d4d;
+    }
+
+    .slider::-moz-range-track {
+      height: 4px;
+      border-radius: 2px;
+      background: #4d4d4d;
     }
 
     .slider::-webkit-slider-thumb {
       appearance: none;
       width: 10px;
       height: 10px;
+      margin-top: -3px;
+      border-radius: 50%;
+      background: #fff;
+      cursor: pointer;
+    }
+
+    .slider::-moz-range-thumb {
+      width: 10px;
+      height: 10px;
+      border: none;
       border-radius: 50%;
       background: #fff;
       cursor: pointer;
     }
 
     .volume-box {
+      position: relative;
       display: flex;
       justify-content: flex-end;
       align-items: center;
       gap: 8px;
+      height: 16px;
     }
 
     .volume-box .slider { max-width: 100px; }
@@ -269,7 +343,12 @@
   </header>
 
   <div class="search-box">
-    <input type="text" id="searchInput" placeholder="Search track or artist...">
+    <div class="search-wrap">
+      <input type="text" id="searchInput" placeholder="Search track or artist...">
+      <button id="searchClear" title="Clear search" aria-label="Clear search">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
   </div>
 
   <ul class="tracklist" id="tracklist"></ul>
@@ -321,18 +400,22 @@
     const nowTitle = document.getElementById('nowTitle');
     const nowArtist = document.getElementById('nowArtist');
     const searchInput = document.getElementById('searchInput');
+    const searchClear = document.getElementById('searchClear');
 
     let playlist = [];
     let currentIndex = -1;
+    let selectedIndex = -1;
 
-    function fmtTime(sec) {
-      if (isNaN(sec)) return "0:00";
-      const m = Math.floor(sec / 60);
-      const s = Math.floor(sec % 60);
-      return `${m}:${s < 10 ? '0' : ''}${s}`;
-    }
+    const norm = s => (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const fmtTime = s => isNaN(s) ? '0:00' : `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
+    const seek = dt => audio.duration && (audio.currentTime = Math.min(audio.duration, Math.max(0, audio.currentTime + dt)));
+    const setVol = v => {
+      audio.volume = volBar.value = Math.min(1, Math.max(0, v));
+      try { localStorage.setItem('vol', audio.volume); } catch {}
+    };
 
     function renderList(tracks) {
+      selectedIndex = -1;
       tracklistEl.innerHTML = '';
       tracks.forEach((t) => {
         const li = document.createElement('li');
@@ -346,25 +429,33 @@
           <div class="track-date">${t.date || ''}</div>
           <div class="track-dur">${t.duration || ''}</div>
         `;
-        li.onclick = () => playTrackById(t.id);
+        li.onclick = () => loadTrack(playlist.findIndex(p => p.id === t.id));
         tracklistEl.appendChild(li);
       });
     }
 
-    function playTrackById(id) {
-      const idx = playlist.findIndex(t => t.id === id);
-      if (idx !== -1) loadAndPlay(idx);
-    }
-
-    function loadAndPlay(idx) {
+    function loadTrack(idx, autoPlay = true) {
+      if (idx < 0 || idx >= playlist.length) return;
       currentIndex = idx;
       const t = playlist[idx];
       audio.src = t.src;
       nowTitle.textContent = t.title;
       nowArtist.textContent = t.artist || 'Manuel Barrio Linares';
-      audio.play();
-      updatePlayIcon(true);
+      document.title = `${t.title} — ${t.artist || 'Manuel Barrio Linares'}`;
+      try { localStorage.setItem('lastSong', t.title); } catch {}
+      if ('mediaSession' in navigator) {
+        navigator.mediaSession.metadata = new MediaMetadata({ title: t.title, artist: t.artist || 'Manuel Barrio Linares' });
+        navigator.mediaSession.setActionHandler('play', () => playBtn.click());
+        navigator.mediaSession.setActionHandler('pause', () => playBtn.click());
+        navigator.mediaSession.setActionHandler('previoustrack', () => prevBtn.click());
+        navigator.mediaSession.setActionHandler('nexttrack', () => nextBtn.click());
+      }
+      if (autoPlay) {
+        audio.play().then(() => updatePlayIcon(true)).catch(() => updatePlayIcon(false));
+        history.replaceState(null, '', '?song=' + encodeURIComponent(t.title));
+      }
       renderList(getFilteredTracks());
+      document.querySelector('.track-row.active')?.scrollIntoView({ block: 'center', behavior: 'smooth' });
     }
 
     function updatePlayIcon(isPlaying) {
@@ -373,30 +464,20 @@
         : '<path d="M8 5v14l11-7z"/>';
     }
 
+    nowTitle.onclick = () => document.querySelector('.track-row.active')?.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    nowArtist.onclick = () => {
+      if (currentIndex === -1) return;
+      searchInput.value = playlist[currentIndex].artist || 'Manuel Barrio Linares';
+      renderList(getFilteredTracks());
+    };
+
     playBtn.onclick = () => {
-      if (currentIndex === -1 && playlist.length) {
-        loadAndPlay(0);
-        return;
-      }
-      if (audio.paused) {
-        audio.play();
-        updatePlayIcon(true);
-      } else {
-        audio.pause();
-        updatePlayIcon(false);
-      }
+      if (currentIndex === -1 && playlist.length) return loadTrack(0);
+      audio.paused ? (audio.play(), updatePlayIcon(true)) : (audio.pause(), updatePlayIcon(false));
     };
 
-    nextBtn.onclick = () => {
-      if (playlist.length === 0) return;
-      loadAndPlay((currentIndex + 1) % playlist.length);
-    };
-
-    prevBtn.onclick = () => {
-      if (playlist.length === 0) return;
-      loadAndPlay((currentIndex - 1 + playlist.length) % playlist.length);
-    };
-
+    nextBtn.onclick = () => playlist.length && loadTrack((currentIndex + 1) % playlist.length);
+    prevBtn.onclick = () => playlist.length && loadTrack((currentIndex - 1 + playlist.length) % playlist.length);
     audio.onended = () => nextBtn.onclick();
 
     audio.ontimeupdate = () => {
@@ -406,28 +487,94 @@
       durTime.textContent = fmtTime(audio.duration);
     };
 
-    progressBar.oninput = () => {
-      if (!audio.duration) return;
-      audio.currentTime = (progressBar.value / 100) * audio.duration;
-    };
+    progressBar.oninput = () => audio.duration && (audio.currentTime = (progressBar.value / 100) * audio.duration);
+    document.querySelector('.timeline').onwheel = (e) => { e.preventDefault(); seek(e.deltaY < 0 ? 5 : -5); };
 
-    volBar.oninput = () => audio.volume = volBar.value;
+    volBar.oninput = () => setVol(volBar.value);
+    document.querySelector('.volume-box').onwheel = (e) => { e.preventDefault(); setVol(audio.volume + (e.deltaY < 0 ? 0.05 : -0.05)); };
 
     function getFilteredTracks() {
-      const q = searchInput.value.toLowerCase();
+      const q = norm(searchInput.value.trim());
       if (!q) return playlist;
-      return playlist.filter(t =>
-        t.title.toLowerCase().includes(q) || t.artist.toLowerCase().includes(q)
-      );
+      return playlist.filter(t => norm(t.title).includes(q) || norm(t.artist).includes(q));
+    }
+
+    function clearSearch(focus = false) {
+      searchInput.value = '';
+      renderList(playlist);
+      document.querySelector('.track-row.active')?.scrollIntoView({ block: 'center', behavior: 'smooth' });
+      focus ? searchInput.focus() : searchInput.blur();
     }
 
     searchInput.oninput = () => renderList(getFilteredTracks());
+    searchClear.onclick = () => clearSearch(true);
+
+    window.onkeydown = (e) => {
+      if (e.key === 'Escape') return clearSearch(false);
+
+      const rows = tracklistEl.children;
+
+      if (document.activeElement === searchInput) {
+        if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+          if (!rows.length) return;
+          e.preventDefault();
+          rows[selectedIndex]?.classList.remove('selected');
+          selectedIndex = e.key === 'ArrowDown'
+            ? (selectedIndex + 1) % rows.length
+            : (selectedIndex - 1 + rows.length) % rows.length;
+          rows[selectedIndex]?.classList.add('selected');
+          rows[selectedIndex]?.scrollIntoView({ block: 'nearest' });
+          return;
+        }
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          if (rows.length) rows[Math.max(0, selectedIndex)].click();
+          return;
+        }
+        return;
+      }
+
+      if (e.code === 'Space') { e.preventDefault(); return playBtn.click(); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); return seek(5); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); return seek(-5); }
+      if (e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) searchInput.focus();
+    };
+
+    function findTrack(query) {
+      if (!query) return -1;
+      const q = norm(query).replace(/[^a-z0-9]/g, '');
+      let idx = playlist.findIndex(t => {
+        const title = norm(t.title).replace(/[^a-z0-9]/g, '');
+        return title === q || norm(t.title + ' ' + t.artist).replace(/[^a-z0-9]/g, '') === q;
+      });
+      if (idx !== -1) return idx;
+
+      idx = playlist.findIndex(t => norm(t.title).replace(/[^a-z0-9]/g, '').includes(q));
+      if (idx !== -1) return idx;
+
+      const tokens = norm(query).split(/\W+/).filter(Boolean);
+      let best = -1, max = 0;
+      playlist.forEach((t, i) => {
+        const text = norm(t.title + ' ' + t.artist);
+        const score = tokens.filter(tok => text.includes(tok)).length;
+        if (score > max) { max = score; best = i; }
+      });
+      return best;
+    }
 
     fetch('playlist.json')
       .then(res => res.json())
       .then(data => {
         playlist = data;
         renderList(playlist);
+        const savedVol = localStorage.getItem('vol');
+        setVol(savedVol !== null ? parseFloat(savedVol) : 1);
+        const songParam = new URLSearchParams(location.search).get('song');
+        const target = songParam || localStorage.getItem('lastSong');
+        if (target) {
+          const idx = findTrack(target);
+          if (idx !== -1) loadTrack(idx, Boolean(songParam));
+        }
       })
       .catch(err => console.error("Could not load playlist:", err));
   </script>
