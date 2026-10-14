@@ -2,10 +2,10 @@
   {
     "id": 1,
     "title": "Living in your letters",
-    "artist": "Dashboard Confefsional",
-    "src": "assets/dashboard-confefsional-living-in-your-letters.opus",
+    "artist": "Dashboard Confessional",
+    "src": "assets/dashboard-confessional-living-in-your-letters.opus",
     "date": "2026-10-07",
-    "duration": "4:37"
+    "duration": "4:54"
   },
   {
     "id": 2,
@@ -1057,14 +1057,6 @@
   },
   {
     "id": 133,
-    "title": "Living in Your Letters",
-    "artist": "Dashboard Confessional",
-    "src": "assets/dashboard-confessional-living-in-your-letters.opus",
-    "date": "2020-12-13",
-    "duration": "4:54"
-  },
-  {
-    "id": 134,
     "title": "Easily",
     "artist": "Red Hot Chili Peppers",
     "src": "assets/red-hot-chili-peppers-easily.opus",
@@ -1072,7 +1064,7 @@
     "duration": "3:51"
   },
   {
-    "id": 135,
+    "id": 134,
     "title": "Black",
     "artist": "Pearl Jam",
     "src": "assets/pearl-jam-black.opus",
@@ -1080,7 +1072,7 @@
     "duration": "6:01"
   },
   {
-    "id": 136,
+    "id": 135,
     "title": "20 Años Atrás",
     "artist": "Also Sprach",
     "src": "assets/also-sprach-20-anos-atras.opus",
@@ -1088,7 +1080,7 @@
     "duration": "4:49"
   },
   {
-    "id": 137,
+    "id": 136,
     "title": "Heaven's Already Here",
     "artist": "Collective Soul",
     "src": "assets/collective-soul-heavens-already-here.opus",
@@ -1096,7 +1088,7 @@
     "duration": "2:02"
   },
   {
-    "id": 138,
+    "id": 137,
     "title": "Time (You and I)",
     "artist": "Khruangbin",
     "src": "assets/khruangbin-time-you-and-i.opus",
@@ -1104,7 +1096,7 @@
     "duration": "1:20"
   },
   {
-    "id": 139,
+    "id": 138,
     "title": "Don't Speak",
     "artist": "No Doubt",
     "src": "assets/no-doubt-dont-speak.opus",
@@ -1112,7 +1104,7 @@
     "duration": "3:13"
   },
   {
-    "id": 140,
+    "id": 139,
     "title": "Los Aviones",
     "artist": "Andrés Calamaro",
     "src": "assets/andres-calamaro-los-aviones.opus",
@@ -1120,7 +1112,7 @@
     "duration": "4:18"
   },
   {
-    "id": 141,
+    "id": 140,
     "title": "Complicated",
     "artist": "Avril Lavigne",
     "src": "assets/avril-lavigne-complicated.opus",
@@ -1128,7 +1120,7 @@
     "duration": "2:17"
   },
   {
-    "id": 142,
+    "id": 141,
     "title": "La Mano de Dios",
     "artist": "Rodrigo",
     "src": "assets/rodrigo-la-mano-de-dios.opus",
@@ -1136,7 +1128,7 @@
     "duration": "2:38"
   },
   {
-    "id": 143,
+    "id": 142,
     "title": "You Oughta Know",
     "artist": "Alanis Morissette",
     "src": "assets/alanis-morissette-you-oughta-know.opus",
@@ -1144,7 +1136,7 @@
     "duration": "4:47"
   },
   {
-    "id": 144,
+    "id": 143,
     "title": "Teenage Dirtbag",
     "artist": "Wheatus",
     "src": "assets/wheatus-teenage-dirtbag.opus",
@@ -1152,7 +1144,7 @@
     "duration": "4:00"
   },
   {
-    "id": 145,
+    "id": 144,
     "title": "Natural Blues",
     "artist": "Moby",
     "src": "assets/moby-natural-blues.opus",
@@ -1160,7 +1152,7 @@
     "duration": "2:48"
   },
   {
-    "id": 146,
+    "id": 145,
     "title": "Durazno",
     "artist": "Piloco Pier",
     "src": "assets/piloco-pier-durazno.opus",
@@ -1168,7 +1160,7 @@
     "duration": "0:31"
   },
   {
-    "id": 147,
+    "id": 146,
     "title": "Because",
     "artist": "The Beatles",
     "src": "assets/the-beatles-because.opus",
@@ -1176,7 +1168,7 @@
     "duration": "2:11"
   },
   {
-    "id": 148,
+    "id": 147,
     "title": "I Got a Woman",
     "artist": "Ray Charles",
     "src": "assets/ray-charles-i-got-a-woman.opus",
@@ -1184,7 +1176,7 @@
     "duration": "2:56"
   },
   {
-    "id": 149,
+    "id": 148,
     "title": "I Want to Hold Your Hand",
     "artist": "The Beatles",
     "src": "assets/the-beatles-i-want-to-hold-your-hand.opus",
@@ -1192,7 +1184,7 @@
     "duration": "2:48"
   },
   {
-    "id": 150,
+    "id": 149,
     "title": "No One Else",
     "artist": "Weezer",
     "src": "assets/weezer-no-one-else.opus",
@@ -1200,7 +1192,7 @@
     "duration": "2:57"
   },
   {
-    "id": 151,
+    "id": 150,
     "title": "Por Ejemplo",
     "artist": "Fernando Cabrera",
     "src": "assets/fernando-cabrera-por-ejemplo.opus",
@@ -1208,7 +1200,7 @@
     "duration": "2:57"
   },
   {
-    "id": 152,
+    "id": 151,
     "title": "Gárgara Larga",
     "artist": "Divididos",
     "src": "assets/divididos-gargara-larga.opus",
@@ -1216,7 +1208,7 @@
     "duration": "4:09"
   },
   {
-    "id": 153,
+    "id": 152,
     "title": "Fuiste",
     "artist": "Gilda",
     "src": "assets/gilda-fuiste.opus",
@@ -1224,7 +1216,7 @@
     "duration": "0:57"
   },
   {
-    "id": 154,
+    "id": 153,
     "title": "Cortarme el Pelo",
     "artist": "Also Sprach",
     "src": "assets/also-sprach-cortarme-el-pelo.opus",
@@ -1232,7 +1224,7 @@
     "duration": "3:24"
   },
   {
-    "id": 155,
+    "id": 154,
     "title": "Stand by Me",
     "artist": "Ben E. King",
     "src": "assets/ben-e-king-stand-by-me.opus",
@@ -1240,7 +1232,7 @@
     "duration": "2:16"
   },
   {
-    "id": 156,
+    "id": 155,
     "title": "Jeremy",
     "artist": "Pearl Jam",
     "src": "assets/pearl-jam-jeremy.opus",
@@ -1248,7 +1240,7 @@
     "duration": "6:35"
   },
   {
-    "id": 157,
+    "id": 156,
     "title": "Higher Ground",
     "artist": "Stevie Wonder",
     "src": "assets/stevie-wonder-higher-ground.opus",
@@ -1256,7 +1248,7 @@
     "duration": "3:38"
   },
   {
-    "id": 158,
+    "id": 157,
     "title": "More Than Words",
     "artist": "Extreme",
     "src": "assets/extreme-more-than-words.opus",
@@ -1264,7 +1256,7 @@
     "duration": "4:15"
   },
   {
-    "id": 159,
+    "id": 158,
     "title": "Un Vestido y un Amor",
     "artist": "Fito Páez",
     "src": "assets/fito-paez-un-vestido-y-un-amor.opus",
@@ -1272,7 +1264,7 @@
     "duration": "4:01"
   },
   {
-    "id": 160,
+    "id": 159,
     "title": "Midnight Blur 2",
     "artist": "Manu",
     "src": "assets/manu-midnight-blur-2.opus",
@@ -1280,7 +1272,7 @@
     "duration": "2:46"
   },
   {
-    "id": 161,
+    "id": 160,
     "title": "Billie Jean",
     "artist": "Michael Jackson",
     "src": "assets/michael-jackson-billie-jean.opus",
@@ -1288,7 +1280,7 @@
     "duration": "4:48"
   },
   {
-    "id": 162,
+    "id": 161,
     "title": "Radio Ga Ga",
     "artist": "Queen",
     "src": "assets/queen-radio-ga-ga.opus",
@@ -1296,7 +1288,7 @@
     "duration": "4:50"
   },
   {
-    "id": 163,
+    "id": 162,
     "title": "How Soon Is Now",
     "artist": "The Smiths",
     "src": "assets/the-smiths-how-soon-is-now.opus",
@@ -1304,7 +1296,7 @@
     "duration": "4:26"
   },
   {
-    "id": 164,
+    "id": 163,
     "title": "Like a Stone",
     "artist": "Audioslave",
     "src": "assets/audioslave-like-a-stone.opus",
@@ -1312,7 +1304,7 @@
     "duration": "6:03"
   },
   {
-    "id": 165,
+    "id": 164,
     "title": "Aeroplane",
     "artist": "Red Hot Chili Peppers",
     "src": "assets/red-hot-chili-peppers-aeroplane.opus",
@@ -1320,7 +1312,7 @@
     "duration": "5:01"
   },
   {
-    "id": 166,
+    "id": 165,
     "title": "Master Blaster",
     "artist": "Stevie Wonder",
     "src": "assets/stevie-wonder-master-blaster.opus",
@@ -1328,7 +1320,7 @@
     "duration": "1:16"
   },
   {
-    "id": 167,
+    "id": 166,
     "title": "Between the Bars",
     "artist": "Elliott Smith",
     "src": "assets/elliott-smith-between-the-bars.opus",
@@ -1336,7 +1328,7 @@
     "duration": "0:54"
   },
   {
-    "id": 168,
+    "id": 167,
     "title": "Dame un Limón",
     "artist": "Divididos",
     "src": "assets/divididos-dame-un-limon.opus",
@@ -1344,7 +1336,7 @@
     "duration": "0:44"
   },
   {
-    "id": 169,
+    "id": 168,
     "title": "Sábado",
     "artist": "Divididos",
     "src": "assets/divididos-sabado.opus",
@@ -1352,7 +1344,7 @@
     "duration": "6:12"
   },
   {
-    "id": 170,
+    "id": 169,
     "title": "Let It Be",
     "artist": "The Beatles",
     "src": "assets/the-beatles-let-it-be.opus",
@@ -1360,7 +1352,7 @@
     "duration": "4:27"
   },
   {
-    "id": 171,
+    "id": 170,
     "title": "Stand by My Woman",
     "artist": "Lenny Kravitz",
     "src": "assets/lenny-kravitz-stand-by-my-woman.opus",
@@ -1368,7 +1360,7 @@
     "duration": "3:02"
   },
   {
-    "id": 172,
+    "id": 171,
     "title": "Mad World",
     "artist": "Tears for Fears",
     "src": "assets/tears-for-fears-mad-world.opus",
@@ -1376,7 +1368,7 @@
     "duration": "3:30"
   },
   {
-    "id": 173,
+    "id": 172,
     "title": "Titanium",
     "artist": "David Guetta & Sia",
     "src": "assets/david-guetta-sia-titanium.opus",
@@ -1384,7 +1376,7 @@
     "duration": "3:45"
   },
   {
-    "id": 174,
+    "id": 173,
     "title": "God Put a Smile upon Your Face",
     "artist": "Coldplay",
     "src": "assets/coldplay-god-put-a-smile-upon-your-face.opus",
@@ -1392,7 +1384,7 @@
     "duration": "4:26"
   },
   {
-    "id": 175,
+    "id": 174,
     "title": "Fake Plastic Trees",
     "artist": "Radiohead",
     "src": "assets/radiohead-fake-plastic-trees.opus",
@@ -1400,7 +1392,7 @@
     "duration": "5:45"
   },
   {
-    "id": 176,
+    "id": 175,
     "title": "Huelga de Amores",
     "artist": "Divididos",
     "src": "assets/divididos-huelga-de-amores.opus",
@@ -1408,7 +1400,7 @@
     "duration": "1:54"
   },
   {
-    "id": 177,
+    "id": 176,
     "title": "You're Beautiful",
     "artist": "James Blunt",
     "src": "assets/james-blunt-youre-beautiful.opus",
@@ -1416,7 +1408,7 @@
     "duration": "3:25"
   },
   {
-    "id": 178,
+    "id": 177,
     "title": "I Will Always Love You",
     "artist": "Whitney Houston",
     "src": "assets/whitney-houston-i-will-always-love-you.opus",
@@ -1424,7 +1416,7 @@
     "duration": "4:25"
   },
   {
-    "id": 179,
+    "id": 178,
     "title": "Pero Te Quiero",
     "artist": "YouTube",
     "src": "assets/youtube-pero-te-quiero.opus",
@@ -1432,7 +1424,7 @@
     "duration": "2:42"
   },
   {
-    "id": 180,
+    "id": 179,
     "title": "Ain't No Sunshine",
     "artist": "Bill Withers",
     "src": "assets/bill-withers-aint-no-sunshine.opus",
@@ -1440,7 +1432,7 @@
     "duration": "2:53"
   },
   {
-    "id": 181,
+    "id": 180,
     "title": "Hey Jude",
     "artist": "The Beatles",
     "src": "assets/the-beatles-hey-jude.opus",
@@ -1448,7 +1440,7 @@
     "duration": "4:58"
   },
   {
-    "id": 182,
+    "id": 181,
     "title": "Outshined",
     "artist": "Soundgarden",
     "src": "assets/soundgarden-outshined.opus",
@@ -1456,7 +1448,7 @@
     "duration": "5:40"
   },
   {
-    "id": 183,
+    "id": 182,
     "title": "Everlong",
     "artist": "Foo Fighters",
     "src": "assets/foo-fighters-everlong.opus",
@@ -1464,7 +1456,7 @@
     "duration": "3:28"
   },
   {
-    "id": 184,
+    "id": 183,
     "title": "Maxwell's Silver Hammer",
     "artist": "The Beatles",
     "src": "assets/the-beatles-maxwells-silver-hammer.opus",
@@ -1472,7 +1464,7 @@
     "duration": "0:59"
   },
   {
-    "id": 185,
+    "id": 184,
     "title": "The Long and Winding Road",
     "artist": "The Beatles",
     "src": "assets/the-beatles-the-long-and-winding-road.opus",
@@ -1480,7 +1472,7 @@
     "duration": "2:34"
   },
   {
-    "id": 186,
+    "id": 185,
     "title": "María",
     "artist": "Ricky Martin",
     "src": "assets/ricky-martin-maria.opus",
@@ -1488,7 +1480,7 @@
     "duration": "0:33"
   },
   {
-    "id": 187,
+    "id": 186,
     "title": "Bajan",
     "artist": "Pescado Rabioso",
     "src": "assets/pescado-rabioso-bajan.opus",
@@ -1496,7 +1488,7 @@
     "duration": "3:25"
   },
   {
-    "id": 188,
+    "id": 187,
     "title": "Walk",
     "artist": "Foo Fighters",
     "src": "assets/foo-fighters-walk.opus",
@@ -1504,7 +1496,7 @@
     "duration": "4:25"
   },
   {
-    "id": 189,
+    "id": 188,
     "title": "The Way You Make Me Feel",
     "artist": "Michael Jackson",
     "src": "assets/michael-jackson-the-way-you-make-me-feel.opus",
@@ -1512,7 +1504,7 @@
     "duration": "1:20"
   },
   {
-    "id": 190,
+    "id": 189,
     "title": "Porch",
     "artist": "Pearl Jam",
     "src": "assets/pearl-jam-porch.opus",
@@ -1520,7 +1512,7 @@
     "duration": "3:13"
   },
   {
-    "id": 191,
+    "id": 190,
     "title": "Perros Perdidos",
     "artist": "Divididos",
     "src": "assets/divididos-perros-perdidos.opus",
@@ -1528,7 +1520,7 @@
     "duration": "2:30"
   },
   {
-    "id": 192,
+    "id": 191,
     "title": "Mentirosa",
     "artist": "Ráfaga",
     "src": "assets/rafaga-mentirosa.opus",
@@ -1536,7 +1528,7 @@
     "duration": "1:27"
   },
   {
-    "id": 193,
+    "id": 192,
     "title": "Eleanor Rigby",
     "artist": "The Beatles",
     "src": "assets/the-beatles-eleanor-rigby.opus",
@@ -1544,7 +1536,7 @@
     "duration": "2:52"
   },
   {
-    "id": 194,
+    "id": 193,
     "title": "En lo de Juani",
     "artist": "Manu",
     "src": "assets/manu-en-lo-de-juani.opus",
@@ -1552,7 +1544,7 @@
     "duration": "11:22"
   },
   {
-    "id": 195,
+    "id": 194,
     "title": "Creep",
     "artist": "Radiohead",
     "src": "assets/radiohead-creep.opus",
@@ -1560,7 +1552,7 @@
     "duration": "4:08"
   },
   {
-    "id": 196,
+    "id": 195,
     "title": "Holanda",
     "artist": "Luis Alberto Spinetta",
     "src": "assets/luis-alberto-spinetta-holanda.opus",
@@ -1568,7 +1560,7 @@
     "duration": "3:39"
   },
   {
-    "id": 197,
+    "id": 196,
     "title": "Good Riddance",
     "artist": "Green Day",
     "src": "assets/green-day-good-riddance.opus",
@@ -1576,7 +1568,7 @@
     "duration": "1:56"
   },
   {
-    "id": 198,
+    "id": 197,
     "title": "Seminare",
     "artist": "Serú Girán",
     "src": "assets/seru-giran-seminare.opus",
@@ -1584,7 +1576,7 @@
     "duration": "2:49"
   },
   {
-    "id": 199,
+    "id": 198,
     "title": "Error",
     "artist": "Enlace",
     "src": "assets/enlace-error.opus",
@@ -1592,7 +1584,7 @@
     "duration": "2:51"
   },
   {
-    "id": 200,
+    "id": 199,
     "title": "Alarma",
     "artist": "Manu",
     "src": "assets/manu-alarma.opus",

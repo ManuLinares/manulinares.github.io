@@ -126,6 +126,14 @@ with ThreadPoolExecutor(max_workers=os.cpu_count()) as pool:
 
 playlist = [r for r in results if r is not None]
 
+valid_assets = {Path(item["src"]).name for item in playlist}
+for dir_path in (DEST_DIR, Path("dist/music/assets")):
+    if dir_path.exists():
+        for p in dir_path.glob("*.opus"):
+            if p.name not in valid_assets:
+                p.unlink()
+                print(f"Pruned stale asset: {p}")
+
 with open(PLAYLIST_FILE, "w", encoding="utf-8") as f:
     json.dump(playlist, f, indent=2, ensure_ascii=False)
 
