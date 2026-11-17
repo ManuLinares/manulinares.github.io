@@ -7,7 +7,9 @@ enum BlockState
 	PARAGRAPH,
 	LIST,
 	BLOCKQUOTE,
-	CODE
+	CODE,
+	TABLE_HEAD,
+	TABLE
 }
 
 enum TokenClass : (String name)
@@ -442,6 +444,73 @@ fn void format_inlines(String text, DString* out)
 	}
 }
 
+fn String[] split_row(String line)
+{
+	String s = line.trim();
+	if (s.starts_with("|")) s = s[1..];
+	if (s.ends_with("|")) s = s[0 : s.len - 1];
+	List{String} cells;
+	cells.init(tmem);
+	bool in_code = false;
+	sz start = 0;
+	foreach (i, c : s)
+	{
+		switch (c)
+		{
+			case '`':
+				in_code = !in_code;
+			case '|':
+				if (in_code) break;
+				cells.push(s[start : i - start].trim());
+				start = i + 1;
+		}
+	}
+	cells.push(s[start..].trim());
+	return cells.array_view();
+}
+
+fn bool is_table_separator(String line)
+{
+	if (!line.starts_with("|")) return false;
+	foreach (cell : split_row(line))
+	{
+		String dashes = cell.trim(":");
+		if (!dashes.len) return false;
+		foreach (c : dashes) if (c != '-') return false;
+	}
+	return true;
+}
+
+fn String cell_align(String sep)
+{
+	bool left = sep.starts_with(":");
+	bool right = sep.ends_with(":");
+	if (left && right) return ` style="text-align:center"`;
+	if (right) return ` style="text-align:right"`;
+	if (left) return ` style="text-align:left"`;
+	return "";
+}
+
+fn void append_row(DString* out, String line, String tag, String[] seps)
+{
+	String[] cells = split_row(line);
+	out.append_string("<tr>");
+	foreach (i, sep : seps)
+	{
+		out.appendf("<%s%s>", tag, cell_align(sep));
+		if (i < cells.len) format_inlines(cells[i], out);
+		out.appendf("</%s>", tag);
+	}
+	out.append_string("</tr>\n");
+}
+
+fn void flush_table_head(BlockState* state, String head, DString* out)
+{
+	out.append_string("<p>");
+	format_inlines(head, out);
+	*state = PARAGRAPH;
+}
+
 fn void close_block(BlockState* state, DString* out)
 {
 	switch (*state)
@@ -449,6 +518,7 @@ fn void close_block(BlockState* state, DString* out)
 		case PARAGRAPH:  out.append_string("</p>\n");
 		case LIST:       out.append_string("</ul>\n");
 		case BLOCKQUOTE: out.append_string("</p></blockquote>\n");
+		case TABLE:      out.append_string("</tbody>\n</table>\n");
 		default:         break;
 	}
 	*state = NONE;
@@ -460,6 +530,8 @@ fn String to_html(String md, Allocator allocator) => @pool()
 	DString code_buf = dstring::temp_with_capacity(4096);
 	String code_lang = "";
 	BlockState state = NONE;
+	String table_head;
+	String[] table_seps;
 
 	Splitter lines = md.tokenize_all("\n");
 
@@ -492,6 +564,26 @@ fn String to_html(String md, Allocator allocator) => @pool()
 			}
 			code_buf.append_string(line);
 			code_buf.append_char('\n');
+			continue;
+		}
+
+		if (state == TABLE_HEAD)
+		{
+			if (is_table_separator(line))
+			{
+				table_seps = split_row(line);
+				out.append_string("<table>\n<thead>\n");
+				append_row(&out, table_head, "th", table_seps);
+				out.append_string("</thead>\n<tbody>\n");
+				state = TABLE;
+				continue;
+			}
+			flush_table_head(&state, table_head, &out);
+		}
+
+		if (state == TABLE && line.starts_with("|"))
+		{
+			append_row(&out, line, "td", table_seps);
 			continue;
 		}
 
@@ -561,6 +653,11 @@ fn String to_html(String md, Allocator allocator) => @pool()
 					format_inlines(line[2..], &out);
 					continue;
 				}
+			case '|':
+				close_block(&state, &out);
+				table_head = line;
+				state = TABLE_HEAD;
+				continue;
 			case '<':
 				bool is_raw_html = line.starts_with("<details") || line.starts_with("</details>") ||
 				                   line.starts_with("<summary") || line.starts_with("</summary>");
@@ -588,6 +685,7 @@ fn String to_html(String md, Allocator allocator) => @pool()
 		format_inlines(line, &out);
 	}
 
+	if (state == TABLE_HEAD) flush_table_head(&state, table_head, &out);
 	close_block(&state, &out);
 	return out.copy_str(allocator);
 }
