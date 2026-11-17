@@ -220,3 +220,30 @@ body {
   border-bottom: 1px solid var(--line);
   padding-bottom: 8px;
 }
+.post-content table {
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  display: block;
+  overflow-x: auto;
+}
+
+.post-content th,
+.post-content td {
+  border: 1px solid var(--line);
+  padding: 6px 12px;
+  text-align: left;
+}
+
+.post-content th {
+  background: var(--code-bg);
+  font-weight: 600;
+}
+
+.post-content td code,
+.post-content th code {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
